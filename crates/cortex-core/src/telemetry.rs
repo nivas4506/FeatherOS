@@ -18,11 +18,15 @@ pub struct SystemContext {
 
 impl SystemContext {
     pub fn capture() -> Self {
+        Self::capture_in(std::env::current_dir().unwrap_or_else(|_| PathBuf::from(".")))
+    }
+
+    /// Capture context without changing the process-wide directory in a multi-client daemon.
+    pub fn capture_in(current_dir: PathBuf) -> Self {
         let username = std::env::var("USER")
             .or_else(|_| std::env::var("USERNAME"))
             .unwrap_or_else(|_| "unknown".to_string());
 
-        let current_dir = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
         let hostname = Self::get_hostname();
         let os_name = Self::get_os_name();
         let kernel = Self::get_kernel();

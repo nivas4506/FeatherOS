@@ -103,7 +103,9 @@ impl OllamaProvider {
         Self {
             endpoint,
             model,
-            client: reqwest::Client::new(),
+            client: reqwest::Client::builder()
+                .timeout(std::time::Duration::from_secs(120))
+                .build().expect("HTTP client configuration"),
         }
     }
 }
@@ -143,7 +145,8 @@ impl LlmProvider for OllamaProvider {
             .json(&req)
             .send()
             .await
-            .context("Failed to connect to local Ollama daemon")?;
+            .context("Failed to connect to local Ollama daemon")?
+            .error_for_status()?;
 
         let data: OllamaGenerateResponse = res.json().await.context("Failed to parse Ollama JSON response")?;
 

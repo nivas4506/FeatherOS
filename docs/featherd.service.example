@@ -1,0 +1,11 @@
+[Unit]
+Description=FeatherOS background cognitive service
+After=network-online.target
+
+[Service]
+ExecStart=%h/.local/bin/featherd --workspace %h
+Restart=on-failure
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

@@ -59,11 +59,14 @@ impl SafeExecutor {
     }
 
     pub async fn execute(&self, command_str: &str) -> Result<ExecutionResult> {
+        anyhow::ensure!(crate::SafetyEngine::new().assess(command_str).allowed, "Critical command blocked by Aegis");
         let start_time = Instant::now();
         let executed_at = Utc::now();
 
         let mut cmd = self.create_command(command_str);
         cmd.current_dir(&self.config.working_dir)
+            .kill_on_drop(true)
+            .stdin(Stdio::null())
             .stdout(Stdio::piped())
             .stderr(Stdio::piped());
 
@@ -80,19 +83,25 @@ impl SafeExecutor {
             cmd.env(k, v);
         }
 
-        let child = cmd.spawn().with_context(|| format!("Failed to spawn command: {}", command_str))?;
-        let timeout_fut = tokio::time::timeout(self.config.timeout, child.wait_with_output());
+        #[cfg(unix)]
+        cmd.process_group(0);
+        let mut child = cmd.spawn().with_context(|| format!("Failed to spawn command: {}", command_str))?;
+        #[cfg(unix)]
+        let _group = ProcessGroup(child.id().unwrap() as i32);
+        let stdout = child.stdout.take().unwrap();
+        let stderr = child.stderr.take().unwrap();
+        let timeout_fut = tokio::time::timeout(self.config.timeout, async {
+            tokio::try_join!(child.wait(), read_bounded(stdout), read_bounded(stderr))
+        });
 
         match timeout_fut.await {
-            Ok(Ok(output)) => {
+            Ok(Ok((status, stdout, stderr))) => {
                 let duration_ms = start_time.elapsed().as_millis() as u64;
-                let stdout = String::from_utf8_lossy(&output.stdout).to_string();
-                let stderr = String::from_utf8_lossy(&output.stderr).to_string();
 
                 Ok(ExecutionResult {
                     command: command_str.to_string(),
                     working_dir: self.config.working_dir.clone(),
-                    exit_code: output.status.code(),
+                    exit_code: status.code(),
                     stdout,
                     stderr,
                     duration_ms,
@@ -102,6 +111,11 @@ impl SafeExecutor {
             }
             Ok(Err(e)) => Err(anyhow::anyhow!("Execution error: {}", e)),
             Err(_) => {
+                #[cfg(windows)]
+                if let Some(pid) = child.id() {
+                    let _ = Command::new("taskkill").args(["/PID", &pid.to_string(), "/T", "/F"]).output().await;
+                }
+                let _ = child.kill().await;
                 let duration_ms = start_time.elapsed().as_millis() as u64;
                 Ok(ExecutionResult {
                     command: command_str.to_string(),
@@ -115,5 +129,34 @@ impl SafeExecutor {
                 })
             }
         }
+    }
+}
+
+async fn read_bounded(mut reader: impl tokio::io::AsyncRead + Unpin) -> std::io::Result<String> {
+    use tokio::io::AsyncReadExt;
+    const LIMIT: usize = 64 * 1024;
+    let mut bytes = Vec::new();
+    let mut buffer = [0; 8192];
+    let mut truncated = false;
+    loop {
+        let count = reader.read(&mut buffer).await?;
+        if count == 0 { break; }
+        let keep = count.min(LIMIT.saturating_sub(bytes.len()));
+        bytes.extend_from_slice(&buffer[..keep]);
+        truncated |= keep < count;
+    }
+    let mut output = String::from_utf8_lossy(&bytes).into_owned();
+    if truncated { output.push_str("\n[output truncated at 64 KiB]\n"); }
+    Ok(output)
+}
+
+#[cfg(unix)]
+struct ProcessGroup(i32);
+
+#[cfg(unix)]
+impl Drop for ProcessGroup {
+    fn drop(&mut self) {
+        // This process group was created exclusively for this command.
+        unsafe { libc::kill(-self.0, libc::SIGKILL); }
     }
 }
