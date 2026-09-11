@@ -1,0 +1,9 @@
+# Rust build artifacts
+/target
+**/*.rs.bk
+Cargo.lock
+
+# History and journals
+.feather_history
+.aish_history
+*.log
