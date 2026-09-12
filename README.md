@@ -151,6 +151,14 @@ Execution blocked by Aegis Safety Guard:
 
 ---
 
+## 🆕 Phase 2
+
+- Semantic Memory Journal (synapsed) with vector similarity search
+- Cross-platform sandboxed executor (aegis-exec) with Linux Namespaces, macOS Seatbelt, Windows Jobs
+- Model Context Protocol (MCP) tool bus with JSON-schema descriptors
+- Hybrid intent classifier with POSIX and Natural Language backends
+- Cognitive engine (cortex-core) with telemetry and pluggable LLM backends
+
 ## 📄 License
 
 MIT License. See [LICENSE](LICENSE) for details.
