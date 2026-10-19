@@ -1,0 +1,14 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/core/feather-hal/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-ipc/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-watch/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-exec/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-snapshot/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed/cmake_install.cmake",
+		"C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/featherd/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

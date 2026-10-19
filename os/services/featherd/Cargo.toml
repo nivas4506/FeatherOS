@@ -3,24 +3,7 @@ name = "featherd"
 version = "0.2.0"
 edition = "2021"
 
-[dependencies]
-feather-hal = { workspace = true }
-feather-ipc = { workspace = true }
-aegis-exec = { workspace = true }
-aegis-snapshot = { workspace = true }
-cortex-core = { workspace = true }
-agent-bus = { workspace = true }
-synapsed = { workspace = true }
-feather-watch = { workspace = true }
-feather-embed = { workspace = true }
-tokio.workspace = true
-serde.workspace = true
-serde_json.workspace = true
-anyhow.workspace = true
-clap.workspace = true
-uuid.workspace = true
-chrono.workspace = true
-fs2.workspace = true
+# featherd is built with CMake (C++20), not Cargo.
+# This manifest is retained only so the crate path exists in the workspace.
 
-[dev-dependencies]
-tempfile.workspace = true
+[dependencies]

@@ -1,0 +1,25 @@
+export type View = "Overview" | "Workspace" | "Memory" | "Tools" | "Activity";
+
+export type IconName =
+  | "grid"
+  | "folder"
+  | "brain"
+  | "spark"
+  | "pulse"
+  | "settings"
+  | "search"
+  | "bell"
+  | "plus"
+  | "arrow"
+  | "terminal"
+  | "check"
+  | "clock"
+  | "shield"
+  | "cpu"
+  | "memory"
+  | "disk"
+  | "chevron"
+  | "command"
+  | "close"
+  | "minus"
+  | "maximize";

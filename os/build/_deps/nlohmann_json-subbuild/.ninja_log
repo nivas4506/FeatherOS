@@ -1,0 +1,24 @@
+# ninja log v7
+35	969	8141098821436976	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-mkdir	372e21cb2065f69f
+35	969	8141098821436976	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-mkdir	372e21cb2065f69f
+972	8258	8141098887132835	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-download	11aa4198dbf8ce4
+972	8258	8141098887132835	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-download	11aa4198dbf8ce4
+8275	10971	8141098920837467	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-update	3de052f886aa5e50
+8275	10971	8141098920837467	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-update	3de052f886aa5e50
+10972	13197	8141098943136427	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-patch	9c630a72849e7797
+10972	13197	8141098943136427	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-patch	9c630a72849e7797
+13198	16442	8141098969856526	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-copyfile	8d1be4b4ea85b57
+13198	16442	8141098969856526	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-src/json.hpp	8d1be4b4ea85b57
+13198	16442	8141098969856526	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-copyfile	8d1be4b4ea85b57
+16444	18879	8141099000613745	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-configure	12e1a8ab6cd9e19
+16444	18879	8141099000613745	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-configure	12e1a8ab6cd9e19
+18880	19462	8141099006661197	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-build	1a78072ca433e11d
+18880	19462	8141099006661197	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-build	1a78072ca433e11d
+19463	20002	8141099011727052	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-install	e65e1647c2396025
+19463	20002	8141099011727052	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-install	e65e1647c2396025
+20005	20872	8141099020585478	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-test	6994b5417d3f78a8
+20005	20872	8141099020585478	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-test	6994b5417d3f78a8
+20874	21626	8141099028146968	CMakeFiles/nlohmann_json-populate-complete	ff32d83dc1b06186
+20874	21626	8141099028146968	nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-done	ff32d83dc1b06186
+20874	21626	8141099028146968	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/CMakeFiles/nlohmann_json-populate-complete	ff32d83dc1b06186
+20874	21626	8141099028146968	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/_deps/nlohmann_json-subbuild/nlohmann_json-populate-prefix/src/nlohmann_json-populate-stamp/nlohmann_json-populate-done	ff32d83dc1b06186

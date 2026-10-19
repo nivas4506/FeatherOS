@@ -1,0 +1,25 @@
+# ninja log v7
+27	18336	8141110706350036	build.ninja	fd575f19fa6d8f05
+27	18336	8141110699125188	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110701142434	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/core/feather-hal/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110701660184	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-ipc/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110702478956	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-watch/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110702957903	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-exec/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110703466783	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-snapshot/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110704020589	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed/cmake_install.cmake	fd575f19fa6d8f05
+27	18336	8141110704879800	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/featherd/cmake_install.cmake	fd575f19fa6d8f05
+57	32985	8141104630365406	core/feather-hal/CMakeFiles/feather-hal.dir/src/hal.cpp.obj	762b6c2eedf080da
+191	10256	8141110706350036	build.ninja	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/core/feather-hal/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-ipc/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-watch/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-exec/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-snapshot/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed/cmake_install.cmake	fd575f19fa6d8f05
+191	10256	8141110706350036	C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/featherd/cmake_install.cmake	fd575f19fa6d8f05
+70	33120	8141112660909056	core/feather-hal/CMakeFiles/feather-hal.dir/src/hal.cpp.obj	762b6c2eedf080da
+1340	95677	8141119324816701	core/feather-hal/CMakeFiles/feather-hal.dir/src/hal.cpp.obj	762b6c2eedf080da
+180	65443	8141123304209157	core/feather-hal/CMakeFiles/feather-hal.dir/src/hal.cpp.obj	762b6c2eedf080da
+1155	69727	8141123313937739	core/feather-hal/CMakeFiles/feather-hal.dir/src/portal/telemetry_portal.cpp.obj	aa5fa85e6c8b88fd
+211	55893	8141128570612846	core/feather-hal/CMakeFiles/feather-hal.dir/src/hal.cpp.obj	762b6c2eedf080da

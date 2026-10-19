@@ -7,11 +7,11 @@ The **Application Layer** sits on top of the FeatherOS OS Layer and provides hum
 │                      APPLICATION LAYER (Layer 4)                       │
 │                                                                        │
 │  ┌─────────────────────────┐  ┌─────────────────────────────────────┐  │
-│  │   COGNITIVE SHELL       │  │       TERMINAL DASHBOARD (TUI)      │  │
-│  │   apps/shell/aish       │  │       apps/tui/feather-tui          │  │
-│  │   • Dual-Mode REPL      │  │       • Dual-Pane Visual Dashboard  │  │
-│  │   • Instant POSIX Shell │  │       • Real-time Agent Inspector   │  │
-│  │   • Natural Language AI │  │       • Telemetry & Memory Charts   │  │
+│  │   COGNITIVE SHELL       │  │       DESKTOP EXPERIENCE            │  │
+│  │   apps/shell/aish       │  │       apps/desktop                  │  │
+│  │   • Dual-Mode REPL      │  │       • Electron + React + TypeScript│  │
+│  │   • Instant POSIX Shell │  │       • Widgets, memory, tools, UX   │  │
+│  │   • Natural Language AI │  │       • Native window controls       │  │
 │  └─────────────────────────┘  └─────────────────────────────────────┘  │
 │  ┌──────────────────────────────────────────────────────────────────┐  │
 │  │   SYSTEM TOOLS & EXTENSIONS (apps/tools)                         │  │
@@ -33,7 +33,23 @@ The **Application Layer** sits on top of the FeatherOS OS Layer and provides hum
   - Proactive step verification and rollback preview.
   - Interactive auto-confirmation and execution control.
 
-### 2. Dual-Pane Terminal Dashboard (`apps/tui/feather-tui`)
+### 2. FeatherOS Desktop (`apps/desktop`)
+- **Technology**: Electron + React + TypeScript
+- **Key Features**:
+  - Modern dashboard with system telemetry widgets and workspace pulse.
+  - Cognitive shell command bar with keyboard-first command palette.
+  - Workspace, semantic memory, tools, activity, and snapshot surfaces.
+  - Safe renderer defaults with a preload bridge for native window controls.
+  - Mock-first UI that can be connected to the existing `featherd` JSON-RPC client.
+
+Run the desktop development shell:
+```bash
+cd apps/desktop
+npm install
+npm run dev
+```
+
+### 3. Dual-Pane Terminal Dashboard (`apps/tui/feather-tui`)
 - **Binary**: `feather-tui`
 - **Key Features**:
   - Built with `ratatui` and `crossterm`.

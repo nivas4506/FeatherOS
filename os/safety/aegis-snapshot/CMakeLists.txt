@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.20)
+project(aegis-snapshot LANGUAGES CXX)
+add_library(aegis-snapshot STATIC src/snapshot.cpp)
+target_include_directories(aegis-snapshot PUBLIC include)
+target_compile_features(aegis-snapshot PUBLIC cxx_std_20)
+target_link_libraries(aegis-snapshot PUBLIC feather-hal)

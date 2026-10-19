@@ -1,17 +1,13 @@
 [workspace]
 resolver = "2"
 members = [
-    # OS Layer (Platform-Independent Substrate)
+    # OS Layer (Platform-Independent Substrate) — C++ via CMake
     "os/core/feather-hal",
     "os/services/featherd",
-    "os/services/synapsed",
     "os/services/feather-watch",
     "os/services/feather-ipc",
     "os/safety/aegis-exec",
     "os/safety/aegis-snapshot",
-    "os/intelligence/cortex-core",
-    "os/intelligence/agent-bus",
-    "os/intelligence/feather-embed",
 
     # Application Layer (User Space)
     "apps/shell/aish",
@@ -19,17 +15,9 @@ members = [
 ]
 
 [workspace.dependencies]
-# OS Layer Internal Dependencies
-feather-hal = { path = "os/core/feather-hal" }
-feather-ipc = { path = "os/services/feather-ipc" }
-featherd = { path = "os/services/featherd" }
-synapsed = { path = "os/services/synapsed" }
-feather-watch = { path = "os/services/feather-watch" }
-aegis-exec = { path = "os/safety/aegis-exec" }
-aegis-snapshot = { path = "os/safety/aegis-snapshot" }
-cortex-core = { path = "os/intelligence/cortex-core" }
-agent-bus = { path = "os/intelligence/agent-bus" }
-feather-embed = { path = "os/intelligence/feather-embed" }
+# OS Layer Internal Dependencies (C++ via CMake — not Rust crates)
+# feather-hal, feather-ipc, featherd, feather-watch, aegis-exec,
+# aegis-snapshot, synapsed are built with CMake, not Cargo.
 
 # Application Layer Internal Dependencies
 aish = { path = "apps/shell/aish" }
