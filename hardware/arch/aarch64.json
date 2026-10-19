@@ -1,0 +1,17 @@
+{
+  "arch": "aarch64",
+  "vendor": "arm",
+  "features": ["fp", "asimd", "evtstrm", "aes", "sha1", "sha2", "crc32", "atomics"],
+  "page_size_bytes": 4096,
+  "virtual_address_bits": 48,
+  "physical_address_bits": 48,
+  "boot_modes": ["uefi", "u-boot"],
+  "endianness": "little",
+  "dma_supported": true,
+  "virtio_support": {
+    "net": true,
+    "block": true,
+    "balloon": true,
+    "rng": true
+  }
+}

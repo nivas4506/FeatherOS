@@ -1,20 +1,41 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/aegis-exec",
-    "crates/cortex-core",
-    "crates/agent-bus",
-    "crates/synapsed",
-    "crates/aish",
-    "crates/feather-ipc",
-    "crates/featherd",
-    "crates/feather-watch",
-    "crates/aegis-snapshot",
-    "crates/feather-embed",
-    "crates/feather-tui",
+    # OS Layer (Platform-Independent Substrate)
+    "os/core/feather-hal",
+    "os/services/featherd",
+    "os/services/synapsed",
+    "os/services/feather-watch",
+    "os/services/feather-ipc",
+    "os/safety/aegis-exec",
+    "os/safety/aegis-snapshot",
+    "os/intelligence/cortex-core",
+    "os/intelligence/agent-bus",
+    "os/intelligence/feather-embed",
+
+    # Application Layer (User Space)
+    "apps/shell/aish",
+    "apps/tui/feather-tui",
 ]
 
 [workspace.dependencies]
+# OS Layer Internal Dependencies
+feather-hal = { path = "os/core/feather-hal" }
+feather-ipc = { path = "os/services/feather-ipc" }
+featherd = { path = "os/services/featherd" }
+synapsed = { path = "os/services/synapsed" }
+feather-watch = { path = "os/services/feather-watch" }
+aegis-exec = { path = "os/safety/aegis-exec" }
+aegis-snapshot = { path = "os/safety/aegis-snapshot" }
+cortex-core = { path = "os/intelligence/cortex-core" }
+agent-bus = { path = "os/intelligence/agent-bus" }
+feather-embed = { path = "os/intelligence/feather-embed" }
+
+# Application Layer Internal Dependencies
+aish = { path = "apps/shell/aish" }
+feather-tui = { path = "apps/tui/feather-tui" }
+
+# External Shared Dependencies
 async-trait = "0.1"
 tokio = { version = "1.40", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }

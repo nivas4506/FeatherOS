@@ -1,0 +1,56 @@
+#!/bin/sh
+#
+# FeatherOS Early Userspace Init Bootstrap
+# Transitions from Linux Kernel Base Layer -> FeatherOS OS Layer
+#
+
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/os/bin
+
+echo "=========================================================="
+echo "  [FeatherOS Base Layer] Linux Kernel Boot Sequence Active"
+echo "  Architecture: Hardware -> Kernel -> OS Layer -> Apps"
+echo "=========================================================="
+
+# 1. Mount virtual kernel filesystems
+echo "[init] Mounting virtual filesystems (/proc, /sys, /dev, /run)..."
+mkdir -p /proc /sys /dev /run /tmp /var /var/log /root/.feather
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev
+mount -t tmpfs -o mode=0755,nodev,nosuid tmpfs /run
+mount -t tmpfs -o mode=1777,nodev,nosuid tmpfs /tmp
+
+# 2. Mount cgroups v2 hierarchy for Aegis sandboxing
+echo "[init] Initializing cgroups v2 hierarchy for Aegis sandboxing..."
+if [ -d /sys/fs/cgroup ]; then
+    mount -t cgroup2 none /sys/fs/cgroup
+fi
+
+# 3. Load eBPF probe if available
+if [ -f /kernel/ebpf/feather_probe.o ]; then
+    echo "[init] Attaching FeatherOS eBPF syscall monitor..."
+    bpftool prog load /kernel/ebpf/feather_probe.o /sys/fs/bpf/feather_probe 2>/dev/null || true
+fi
+
+# 4. Bootstrap the FeatherOS OS Layer Daemon (featherd)
+echo "[init] Bootstrapping FeatherOS OS Layer (featherd)..."
+if [ -x /usr/local/bin/featherd ] || [ -x /bin/featherd ] || [ -x /os/bin/featherd ]; then
+    DAEMON_BIN=$(command -v featherd || echo "/usr/local/bin/featherd")
+    echo "[init] Launching OS supervisor daemon: $DAEMON_BIN"
+    $DAEMON_BIN --listen unix:///run/featherd.sock &
+    sleep 0.5
+else
+    echo "[init] Warning: featherd daemon binary not found in standard paths."
+fi
+
+# 5. Hand off control to the FeatherOS Cognitive Shell (Application Layer)
+echo "[init] Handing off control to Application Layer (/bin/feather)..."
+if [ -x /bin/feather ] || [ -x /usr/local/bin/feather ]; then
+    exec /bin/feather
+elif [ -x /bin/sh ]; then
+    echo "[init] Falling back to emergency shell..."
+    exec /bin/sh
+else
+    echo "[init] Fatal: No shell or FeatherOS binary found. Halting."
+    while true; do sleep 3600; done
+fi

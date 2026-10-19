@@ -4,7 +4,7 @@ set -u
 cd "$(dirname "$0")/.."
 chmod +x scripts/zigspy.sh
 rm -f "$HOME/zigspy.log"
-touch crates/feather-tui/src/main.rs
+touch apps/tui/feather-tui/src/main.rs
 CARGO_ZIGBUILD_ZIG_COMMAND="$PWD/scripts/zigspy.sh" \
   cargo zigbuild --release --target x86_64-pc-windows-gnu -p feather-tui 2>&1 | tail -n 2
 echo "--- zig invocations:"

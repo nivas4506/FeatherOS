@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64",
+  "vendor": "generic",
+  "features": ["lm", "sse4_2", "avx2", "aes", "rdrand"],
+  "page_size_bytes": 4096,
+  "virtual_address_bits": 48,
+  "physical_address_bits": 52,
+  "boot_modes": ["uefi", "bios"],
+  "endianness": "little",
+  "dma_supported": true,
+  "virtio_support": {
+    "net": true,
+    "block": true,
+    "balloon": true,
+    "rng": true
+  }
+}

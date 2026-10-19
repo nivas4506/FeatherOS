@@ -1,0 +1,28 @@
+/dts-v1/;
+
+/ {
+    compatible = "feather,generic-pc", "intel,x86_64";
+    model = "FeatherOS Generic x86_64 Machine";
+    #address-cells = <2>;
+    #size-cells = <2>;
+
+    chosen {
+        bootargs = "console=ttyS0,115200 console=tty0 root=/dev/vda2 rw quiet loglevel=3 init=/init";
+        stdout-path = "serial0:115200n8";
+    };
+
+    cpus {
+        #address-cells = <1>;
+        #size-cells = <0>;
+        cpu@0 {
+            device_type = "cpu";
+            compatible = "intel,x86_64";
+            reg = <0>;
+        };
+    };
+
+    memory@0 {
+        device_type = "memory";
+        reg = <0x0 0x00000000 0x0 0x40000000>; /* 1GB Baseline */
+    };
+};

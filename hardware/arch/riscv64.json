@@ -1,0 +1,16 @@
+{
+  "arch": "riscv64",
+  "vendor": "riscv-standard",
+  "features": ["rv64gc", "zba", "zbb", "zbs", "sstc"],
+  "page_size_bytes": 4096,
+  "virtual_address_bits": 39,
+  "physical_address_bits": 56,
+  "boot_modes": ["opensbi", "u-boot"],
+  "endianness": "little",
+  "dma_supported": true,
+  "virtio_support": {
+    "net": true,
+    "block": true,
+    "rng": true
+  }
+}

@@ -1,0 +1,19 @@
+[package]
+name = "aish"
+version = "0.2.0"
+edition = "2021"
+default-run = "feather"
+
+[[bin]]
+name = "feather"
+path = "src/feather.rs"
+
+[dependencies]
+cortex-core = { workspace = true }
+feather-ipc = { workspace = true }
+tokio.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+colored.workspace = true
+clap.workspace = true
+rustyline.workspace = true

@@ -1,0 +1,25 @@
+/dts-v1/;
+
+/ {
+    compatible = "feather,qemu-virt", "linux,dummy-virt";
+    model = "FeatherOS QEMU Virtual Machine";
+    #address-cells = <2>;
+    #size-cells = <2>;
+
+    chosen {
+        bootargs = "console=ttyAMA0,115200 root=/dev/vda rw init=/init feather.sandbox=strict";
+        stdout-path = "serial0:115200n8";
+    };
+
+    virtio_block: virtio_mmio@a000000 {
+        compatible = "virtio,mmio";
+        reg = <0x0 0x0a000000 0x0 0x200>;
+        interrupts = <0x0 0x10 0x1>;
+    };
+
+    virtio_net: virtio_mmio@a000200 {
+        compatible = "virtio,mmio";
+        reg = <0x0 0x0a000200 0x0 0x200>;
+        interrupts = <0x0 0x11 0x1>;
+    };
+};

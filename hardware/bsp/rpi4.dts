@@ -1,0 +1,12 @@
+/dts-v1/;
+
+/ {
+    compatible = "raspberrypi,4-model-b", "brcm,bcm2711";
+    model = "Raspberry Pi 4 Model B (FeatherOS Target)";
+    #address-cells = <2>;
+    #size-cells = <1>;
+
+    chosen {
+        bootargs = "coherent_pool=1M 8250.nr_uarts=1 console=ttyS0,115200 root=/dev/mmcblk0p2 rw init=/init";
+    };
+};

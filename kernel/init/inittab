@@ -1,0 +1,7 @@
+# /etc/inittab for FeatherOS Base Layer
+::sysinit:/init
+::respawn:/usr/local/bin/featherd
+tty1::askfirst:/bin/feather
+ttyS0::askfirst:/bin/feather
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
