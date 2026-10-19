@@ -5,7 +5,7 @@ events:
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_UNAME"
     description: "Path to a program."
@@ -20,7 +20,6 @@ events:
     names:
       - "uname"
     candidate_directories:
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -89,18 +88,13 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/home/nivas/.local/bin/uname"
       - "/usr/local/sbin/uname"
       - "/usr/local/bin/uname"
       - "/usr/sbin/uname"
     found: "/usr/bin/uname"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -175,19 +169,19 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:212 (message)"
-      - "CMakeLists.txt:2 (project)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:7 (project)"
     message: |
-      The system is: Linux - 6.6.87.2-microsoft-standard-WSL2 - x86_64
+      The target system is: Generic -  - x86_64
+      The host system is: Linux - 6.6.87.2-microsoft-standard-WSL2 - x86_64
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_MAKE_PROGRAM"
     description: "Path to a program."
@@ -204,7 +198,6 @@ events:
       - "make"
       - "smake"
     candidate_directories:
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -273,18 +266,13 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/home/nivas/.local/bin/gmake"
       - "/usr/local/sbin/gmake"
       - "/usr/local/bin/gmake"
       - "/usr/sbin/gmake"
     found: "/usr/bin/gmake"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -359,16 +347,15 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
-      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:115 (find_program)"
-      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:71 (_cmake_find_compiler_path)"
-      - "CMakeLists.txt:2 (project)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
-    variable: "CMAKE_CXX_COMPILER_WITH_PATH"
-    description: "Path to a program."
+    variable: "CMAKE_CXX_COMPILER"
+    description: "CXX compiler"
     settings:
       SearchFramework: "NEVER"
       SearchAppBundle: "NEVER"
@@ -378,9 +365,17 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-g++"
+      - "CC"
+      - "c++"
+      - "g++"
+      - "aCC"
+      - "cl"
+      - "bcc"
+      - "xlC"
+      - "icpx"
+      - "icx"
+      - "clang++"
     candidate_directories:
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -449,18 +444,81 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/home/nivas/.local/bin/x86_64-linux-gnu-g++"
-      - "/usr/local/sbin/x86_64-linux-gnu-g++"
-      - "/usr/local/bin/x86_64-linux-gnu-g++"
-      - "/usr/sbin/x86_64-linux-gnu-g++"
-    found: "/usr/bin/x86_64-linux-gnu-g++"
+      - "/usr/local/sbin/CC"
+      - "/usr/local/bin/CC"
+      - "/usr/sbin/CC"
+      - "/usr/bin/CC"
+      - "/sbin/CC"
+      - "/bin/CC"
+      - "/usr/games/CC"
+      - "/usr/local/games/CC"
+      - "/usr/lib/wsl/lib/CC"
+      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/CC"
+      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/CC"
+      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/CC"
+      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/CC"
+      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/CC"
+      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/CC"
+      - "/mnt/c/WINDOWS/system32/CC"
+      - "/mnt/c/WINDOWS/CC"
+      - "/mnt/c/WINDOWS/System32/Wbem/CC"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/CC"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/CC"
+      - "/mnt/c/Program Files/dotnet/CC"
+      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/CC"
+      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/CC"
+      - "/mnt/c/Program Files/Go/bin/CC"
+      - "/mnt/c/Program Files/Docker/Docker/resources/bin/CC"
+      - "/mnt/c/ProgramData/chocolatey/bin/CC"
+      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/CC"
+      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/CC"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/CC"
+      - "/mnt/c/Program Files/nodejs/CC"
+      - "/mnt/c/Program Files/Git/cmd/CC"
+      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/CC"
+      - "/mnt/c/Program Files (x86)/cloudflared/CC"
+      - "/mnt/c/Program Files/PuTTY/CC"
+      - "/mnt/c/Users/A/AppData/Local/agy/bin/CC"
+      - "/mnt/c/Users/A/.local/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/CC"
+      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/CC"
+      - "/mnt/c/Windows/system32/CC"
+      - "/mnt/c/Windows/CC"
+      - "/mnt/c/Windows/System32/Wbem/CC"
+      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/CC"
+      - "/mnt/c/Windows/System32/OpenSSH/CC"
+      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/CC"
+      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/CC"
+      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/CC"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/CC"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/CC"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/CC"
+      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/CC"
+      - "/mnt/c/MinGW/ucrt64/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/CC"
+      - "/mnt/c/Users/A/go/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/CC"
+      - "/mnt/c/Users/A/AppData/AndroidCLI/CC"
+      - "/mnt/c/Users/A/.dotnet/tools/CC"
+      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/CC"
+      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/CC"
+      - "/mnt/c/Users/A/AppData/Roaming/npm/CC"
+      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/CC"
+      - "/mnt/c/Program Files/PostgreSQL/18/bin/CC"
+      - "/usr/local/sbin/c++"
+      - "/usr/local/bin/c++"
+      - "/usr/sbin/c++"
+    found: "/usr/bin/c++"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -535,7 +593,6 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
@@ -544,7 +601,7 @@ events:
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "file"
     variable: "src_in"
     description: "Path to a file."
@@ -563,9 +620,6 @@ events:
     found: "/usr/share/cmake-4.2/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -640,17 +694,16 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "message-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler: /usr/bin/x86_64-linux-gnu-g++ 
+      Compiler: /usr/bin/c++ 
       Build flags: 
       Id flags:  
       
@@ -668,7 +721,7 @@ events:
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_AR"
     description: "Path to a program."
@@ -681,11 +734,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-ar"
       - "ar"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -753,13 +804,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-ar"
+    found: "/usr/bin/ar"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -834,13 +881,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_RANLIB"
     description: "Path to a program."
@@ -853,11 +899,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-ranlib"
       - "ranlib"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -925,13 +969,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-ranlib"
+    found: "/usr/bin/ranlib"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -1006,13 +1046,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_STRIP"
     description: "Path to a program."
@@ -1025,11 +1064,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-strip"
       - "strip"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -1097,13 +1134,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-strip"
+    found: "/usr/bin/strip"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -1178,13 +1211,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_LINKER"
     description: "Path to a program."
@@ -1197,11 +1229,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-ld"
       - "ld"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -1269,13 +1299,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-ld"
+    found: "/usr/bin/ld"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -1350,13 +1376,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_NM"
     description: "Path to a program."
@@ -1369,11 +1394,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-nm"
       - "nm"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -1441,13 +1464,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-nm"
+    found: "/usr/bin/nm"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -1522,13 +1541,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_OBJDUMP"
     description: "Path to a program."
@@ -1541,11 +1559,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-objdump"
       - "objdump"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -1613,13 +1629,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-objdump"
+    found: "/usr/bin/objdump"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -1694,13 +1706,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_OBJCOPY"
     description: "Path to a program."
@@ -1713,11 +1724,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-objcopy"
       - "objcopy"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -1785,13 +1794,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-objcopy"
+    found: "/usr/bin/objcopy"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -1866,13 +1871,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_READELF"
     description: "Path to a program."
@@ -1885,11 +1889,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-readelf"
       - "readelf"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -1957,13 +1959,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-readelf"
+    found: "/usr/bin/readelf"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -2038,13 +2036,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_DLLTOOL"
     description: "Path to a program."
@@ -2057,11 +2054,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-dlltool"
       - "dlltool"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -2129,80 +2124,8 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/usr/bin/x86_64-linux-gnu-dlltool"
-      - "/home/nivas/.local/bin/x86_64-linux-gnu-dlltool"
-      - "/usr/local/sbin/x86_64-linux-gnu-dlltool"
-      - "/usr/local/bin/x86_64-linux-gnu-dlltool"
-      - "/usr/sbin/x86_64-linux-gnu-dlltool"
-      - "/sbin/x86_64-linux-gnu-dlltool"
-      - "/bin/x86_64-linux-gnu-dlltool"
-      - "/usr/games/x86_64-linux-gnu-dlltool"
-      - "/usr/local/games/x86_64-linux-gnu-dlltool"
-      - "/usr/lib/wsl/lib/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/WINDOWS/system32/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/WINDOWS/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/WINDOWS/System32/Wbem/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/WINDOWS/System32/OpenSSH/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/dotnet/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Go/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Docker/Docker/resources/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/ProgramData/chocolatey/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/nodejs/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/Git/cmd/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files (x86)/cloudflared/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/PuTTY/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/agy/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/.local/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Windows/system32/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Windows/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Windows/System32/Wbem/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Windows/System32/OpenSSH/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/MinGW/ucrt64/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/go/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/AndroidCLI/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/.dotnet/tools/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Users/A/AppData/Roaming/npm/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/x86_64-linux-gnu-dlltool"
-      - "/mnt/c/Program Files/PostgreSQL/18/bin/x86_64-linux-gnu-dlltool"
-      - "/snap/bin/x86_64-linux-gnu-dlltool"
       - "/usr/bin/dlltool"
-      - "/home/nivas/.local/bin/dlltool"
       - "/usr/local/sbin/dlltool"
       - "/usr/local/bin/dlltool"
       - "/usr/sbin/dlltool"
@@ -2270,13 +2193,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/dlltool"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/dlltool"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/dlltool"
-      - "/snap/bin/dlltool"
     found: false
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -2351,13 +2270,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_ADDR2LINE"
     description: "Path to a program."
@@ -2370,11 +2288,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-addr2line"
       - "addr2line"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -2442,13 +2358,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
-    found: "/usr/bin/x86_64-linux-gnu-addr2line"
+    found: "/usr/bin/addr2line"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -2523,13 +2435,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_TAPI"
     description: "Path to a program."
@@ -2542,11 +2453,9 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-tapi"
       - "tapi"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -2614,80 +2523,8 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/usr/bin/x86_64-linux-gnu-tapi"
-      - "/home/nivas/.local/bin/x86_64-linux-gnu-tapi"
-      - "/usr/local/sbin/x86_64-linux-gnu-tapi"
-      - "/usr/local/bin/x86_64-linux-gnu-tapi"
-      - "/usr/sbin/x86_64-linux-gnu-tapi"
-      - "/sbin/x86_64-linux-gnu-tapi"
-      - "/bin/x86_64-linux-gnu-tapi"
-      - "/usr/games/x86_64-linux-gnu-tapi"
-      - "/usr/local/games/x86_64-linux-gnu-tapi"
-      - "/usr/lib/wsl/lib/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/WINDOWS/system32/x86_64-linux-gnu-tapi"
-      - "/mnt/c/WINDOWS/x86_64-linux-gnu-tapi"
-      - "/mnt/c/WINDOWS/System32/Wbem/x86_64-linux-gnu-tapi"
-      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-tapi"
-      - "/mnt/c/WINDOWS/System32/OpenSSH/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/dotnet/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Go/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Docker/Docker/resources/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/ProgramData/chocolatey/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/nodejs/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/Git/cmd/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files (x86)/cloudflared/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/PuTTY/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/agy/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/.local/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Windows/system32/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Windows/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Windows/System32/Wbem/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Windows/System32/OpenSSH/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/x86_64-linux-gnu-tapi"
-      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/MinGW/ucrt64/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/go/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/AndroidCLI/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/.dotnet/tools/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Users/A/AppData/Roaming/npm/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/x86_64-linux-gnu-tapi"
-      - "/mnt/c/Program Files/PostgreSQL/18/bin/x86_64-linux-gnu-tapi"
-      - "/snap/bin/x86_64-linux-gnu-tapi"
       - "/usr/bin/tapi"
-      - "/home/nivas/.local/bin/tapi"
       - "/usr/local/sbin/tapi"
       - "/usr/local/bin/tapi"
       - "/usr/sbin/tapi"
@@ -2755,13 +2592,9 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/tapi"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/tapi"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/tapi"
-      - "/snap/bin/tapi"
     found: false
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -2836,13 +2669,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER_AR"
     description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
@@ -2855,13 +2687,12 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-gcc-ar-15.2"
-      - "x86_64-linux-gnu-gcc-ar-15"
-      - "x86_64-linux-gnu-gcc-ar15"
-      - "x86_64-linux-gnu-gcc-ar"
+      - "gcc-ar-15.2"
+      - "gcc-ar-15"
+      - "gcc-ar15"
+      - "gcc-ar"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -2929,84 +2760,78 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/usr/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/home/nivas/.local/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/usr/local/sbin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/usr/local/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/usr/sbin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/sbin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/usr/games/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/usr/local/games/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/usr/lib/wsl/lib/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/WINDOWS/system32/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/WINDOWS/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/WINDOWS/System32/Wbem/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/WINDOWS/System32/OpenSSH/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/dotnet/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Go/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Docker/Docker/resources/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/ProgramData/chocolatey/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/nodejs/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/Git/cmd/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files (x86)/cloudflared/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/PuTTY/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/agy/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/.local/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Windows/system32/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Windows/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Windows/System32/Wbem/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Windows/System32/OpenSSH/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/MinGW/ucrt64/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/go/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/AndroidCLI/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/.dotnet/tools/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Users/A/AppData/Roaming/npm/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/mnt/c/Program Files/PostgreSQL/18/bin/x86_64-linux-gnu-gcc-ar-15.2"
-      - "/snap/bin/x86_64-linux-gnu-gcc-ar-15.2"
-    found: "/usr/bin/x86_64-linux-gnu-gcc-ar-15"
+      - "/usr/bin/gcc-ar-15.2"
+      - "/usr/local/sbin/gcc-ar-15.2"
+      - "/usr/local/bin/gcc-ar-15.2"
+      - "/usr/sbin/gcc-ar-15.2"
+      - "/sbin/gcc-ar-15.2"
+      - "/bin/gcc-ar-15.2"
+      - "/usr/games/gcc-ar-15.2"
+      - "/usr/local/games/gcc-ar-15.2"
+      - "/usr/lib/wsl/lib/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/gcc-ar-15.2"
+      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ar-15.2"
+      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/gcc-ar-15.2"
+      - "/mnt/c/WINDOWS/system32/gcc-ar-15.2"
+      - "/mnt/c/WINDOWS/gcc-ar-15.2"
+      - "/mnt/c/WINDOWS/System32/Wbem/gcc-ar-15.2"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/gcc-ar-15.2"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/gcc-ar-15.2"
+      - "/mnt/c/Program Files/dotnet/gcc-ar-15.2"
+      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Go/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Docker/Docker/resources/bin/gcc-ar-15.2"
+      - "/mnt/c/ProgramData/chocolatey/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/gcc-ar-15.2"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/gcc-ar-15.2"
+      - "/mnt/c/Program Files/nodejs/gcc-ar-15.2"
+      - "/mnt/c/Program Files/Git/cmd/gcc-ar-15.2"
+      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/gcc-ar-15.2"
+      - "/mnt/c/Program Files (x86)/cloudflared/gcc-ar-15.2"
+      - "/mnt/c/Program Files/PuTTY/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/agy/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/.local/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/gcc-ar-15.2"
+      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/gcc-ar-15.2"
+      - "/mnt/c/Windows/system32/gcc-ar-15.2"
+      - "/mnt/c/Windows/gcc-ar-15.2"
+      - "/mnt/c/Windows/System32/Wbem/gcc-ar-15.2"
+      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/gcc-ar-15.2"
+      - "/mnt/c/Windows/System32/OpenSSH/gcc-ar-15.2"
+      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/gcc-ar-15.2"
+      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ar-15.2"
+      - "/mnt/c/MinGW/ucrt64/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/gcc-ar-15.2"
+      - "/mnt/c/Users/A/go/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/AndroidCLI/gcc-ar-15.2"
+      - "/mnt/c/Users/A/.dotnet/tools/gcc-ar-15.2"
+      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/gcc-ar-15.2"
+      - "/mnt/c/Users/A/AppData/Roaming/npm/gcc-ar-15.2"
+      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/gcc-ar-15.2"
+      - "/mnt/c/Program Files/PostgreSQL/18/bin/gcc-ar-15.2"
+    found: "/usr/bin/gcc-ar-15"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -3081,13 +2906,12 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
   -
     kind: "find-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     mode: "program"
     variable: "CMAKE_CXX_COMPILER_RANLIB"
     description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
@@ -3100,13 +2924,12 @@ events:
       CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
       CMAKE_FIND_USE_INSTALL_PREFIX: true
     names:
-      - "x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "x86_64-linux-gnu-gcc-ranlib-15"
-      - "x86_64-linux-gnu-gcc-ranlib15"
-      - "x86_64-linux-gnu-gcc-ranlib"
+      - "gcc-ranlib-15.2"
+      - "gcc-ranlib-15"
+      - "gcc-ranlib15"
+      - "gcc-ranlib"
     candidate_directories:
       - "/usr/bin/"
-      - "/home/nivas/.local/bin/"
       - "/usr/local/sbin/"
       - "/usr/local/bin/"
       - "/usr/sbin/"
@@ -3174,84 +2997,78 @@ events:
       - "/mnt/c/Users/A/AppData/Roaming/npm/"
       - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/"
       - "/mnt/c/Program Files/PostgreSQL/18/bin/"
-      - "/snap/bin/"
     searched_directories:
-      - "/usr/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/home/nivas/.local/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/usr/local/sbin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/usr/local/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/usr/sbin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/sbin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/usr/games/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/usr/local/games/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/usr/lib/wsl/lib/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/WINDOWS/system32/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/WINDOWS/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/WINDOWS/System32/Wbem/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/WINDOWS/System32/OpenSSH/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/dotnet/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Go/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Docker/Docker/resources/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/ProgramData/chocolatey/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/nodejs/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/Git/cmd/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files (x86)/cloudflared/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/PuTTY/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/agy/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/.local/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Windows/system32/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Windows/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Windows/System32/Wbem/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Windows/System32/OpenSSH/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/MinGW/ucrt64/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/go/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/AndroidCLI/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/.dotnet/tools/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Users/A/AppData/Roaming/npm/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/mnt/c/Program Files/PostgreSQL/18/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-      - "/snap/bin/x86_64-linux-gnu-gcc-ranlib-15.2"
-    found: "/usr/bin/x86_64-linux-gnu-gcc-ranlib-15"
+      - "/usr/bin/gcc-ranlib-15.2"
+      - "/usr/local/sbin/gcc-ranlib-15.2"
+      - "/usr/local/bin/gcc-ranlib-15.2"
+      - "/usr/sbin/gcc-ranlib-15.2"
+      - "/sbin/gcc-ranlib-15.2"
+      - "/bin/gcc-ranlib-15.2"
+      - "/usr/games/gcc-ranlib-15.2"
+      - "/usr/local/games/gcc-ranlib-15.2"
+      - "/usr/lib/wsl/lib/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin/gcc-ranlib-15.2"
+      - "/mnt/c/WINDOWS/system32/gcc-ranlib-15.2"
+      - "/mnt/c/WINDOWS/gcc-ranlib-15.2"
+      - "/mnt/c/WINDOWS/System32/Wbem/gcc-ranlib-15.2"
+      - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/gcc-ranlib-15.2"
+      - "/mnt/c/WINDOWS/System32/OpenSSH/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/dotnet/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Go/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Docker/Docker/resources/bin/gcc-ranlib-15.2"
+      - "/mnt/c/ProgramData/chocolatey/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/nodejs/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/Git/cmd/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files (x86)/cloudflared/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/PuTTY/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/agy/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/.local/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Windows/system32/gcc-ranlib-15.2"
+      - "/mnt/c/Windows/gcc-ranlib-15.2"
+      - "/mnt/c/Windows/System32/Wbem/gcc-ranlib-15.2"
+      - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/gcc-ranlib-15.2"
+      - "/mnt/c/Windows/System32/OpenSSH/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps/gcc-ranlib-15.2"
+      - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Ollama/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin/gcc-ranlib-15.2"
+      - "/mnt/c/MinGW/ucrt64/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/go/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/AndroidCLI/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/.dotnet/tools/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/gcc-ranlib-15.2"
+      - "/mnt/c/Users/A/AppData/Roaming/npm/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin/gcc-ranlib-15.2"
+      - "/mnt/c/Program Files/PostgreSQL/18/bin/gcc-ranlib-15.2"
+    found: "/usr/bin/gcc-ranlib-15"
     search_context:
       ENV{PATH}:
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
-        - "/home/nivas/.local/bin"
         - "/usr/local/sbin"
         - "/usr/local/bin"
         - "/usr/sbin"
@@ -3326,18 +3143,384 @@ events:
         - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
         - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
         - "/mnt/c/Program Files/PostgreSQL/18/bin"
-        - "/snap/bin"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake:54 (find_program)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:61 (_cmake_find_compiler)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    mode: "program"
+    variable: "CMAKE_ASM_NASM_COMPILER"
+    description: "ASM_NASM compiler"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nasm"
+      - "yasm"
+    candidate_directories:
+      - "/usr/bin/"
+    found: "/usr/bin/nasm"
+    search_context:
+      ENV{PATH}:
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/sbin"
+        - "/usr/bin"
+        - "/sbin"
+        - "/bin"
+        - "/usr/games"
+        - "/usr/local/games"
+        - "/usr/lib/wsl/lib"
+        - "/mnt/c/Program Files/Common Files/Oracle/Java/javapath"
+        - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path"
+        - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath"
+        - "/mnt/c/Program Files/Eclipse Adoptium/jdk-21.0.9.10-hotspot/bin"
+        - "/mnt/c/Program Files/Eclipse Adoptium/jdk-17.0.16.8-hotspot/bin"
+        - "/mnt/c/Program Files/Microsoft/jdk-17.0.16.8-hotspot/bin"
+        - "/mnt/c/WINDOWS/system32"
+        - "/mnt/c/WINDOWS"
+        - "/mnt/c/WINDOWS/System32/Wbem"
+        - "/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/WINDOWS/System32/OpenSSH/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin"
+        - "/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+        - "/mnt/c/Program Files/Go/bin"
+        - "/mnt/c/Program Files/Docker/Docker/resources/bin"
+        - "/mnt/c/ProgramData/chocolatey/bin"
+        - "/mnt/c/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+        - "/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+        - "/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/"
+        - "/mnt/c/Program Files/nodejs/"
+        - "/mnt/c/Program Files/Git/cmd"
+        - "/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility"
+        - "/mnt/c/Program Files (x86)/cloudflared/"
+        - "/mnt/c/Program Files/PuTTY/"
+        - "/mnt/c/Users/A/AppData/Local/agy/bin"
+        - "/mnt/c/Users/A/.local/bin"
+        - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/Scripts/"
+        - "/mnt/c/Users/A/AppData/Local/Programs/Python/Python313/"
+        - "/mnt/c/Program Files/MySQL/MySQL Shell 8.0/bin/"
+        - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path"
+        - "/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath"
+        - "/mnt/c/Windows/system32"
+        - "/mnt/c/Windows"
+        - "/mnt/c/Windows/System32/Wbem"
+        - "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/"
+        - "/mnt/c/Windows/System32/OpenSSH/"
+        - "/mnt/c/Program Files/dotnet/"
+        - "/mnt/c/Program Files (x86)/National Instruments/Shared/LabVIEW CLI"
+        - "/mnt/c/Program Files/nodejs/"
+        - "/mnt/c/Program Files/Git/cmd"
+        - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/flutter_windows_3.35.6-stable/flutter/bin"
+        - "/mnt/c/Users/A/AppData/Local/Android/Sdk/platform-tools"
+        - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools"
+        - "/mnt/c/Users/A/AppData/Local/Android/Sdk/emulator"
+        - "/mnt/c/Users/A/AppData/Local/Android/Sdk/tools/bin"
+        - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity/bin"
+        - "/mnt/c/Program Files/JetBrains/PyCharm 2025.3.1/bin"
+        - "/mnt/c/Users/A/AppData/Local/Programs/Ollama"
+        - "/mnt/c/Users/A/AppData/Local/Programs/Microsoft VS Code/bin"
+        - "/mnt/c/MinGW/ucrt64/bin"
+        - "/mnt/c/Users/A/AppData/Local/GitHubDesktop/bin"
+        - "/mnt/c/Users/A/AppData/Local/Microsoft/WinGet/Packages/GitHub.Copilot_Microsoft.Winget.Source_8wekyb3d8bbwe"
+        - "/mnt/c/Users/A/go/bin"
+        - "/mnt/c/Users/A/AppData/Local/Programs/Antigravity IDE/bin"
+        - "/mnt/c/Users/A/AppData/Local/Programs/cursor/resources/app/bin"
+        - "/mnt/c/Users/A/AppData/AndroidCLI"
+        - "/mnt/c/Users/A/.dotnet/tools"
+        - "/mnt/c/Program Files/JetBrains/DataGrip 2026.1.3/bin"
+        - "/mnt/c/Users/A/AppData/Local/GitHubCopilotCLI/"
+        - "/mnt/c/Users/A/AppData/Roaming/npm"
+        - "/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2026.2/bin"
+        - "/mnt/c/Users/A/AppData/Local/Microsoft/WindowsApps"
+        - "/mnt/c/Program Files/PostgreSQL/18/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is AppleClang using "--version" did not match "(Apple (clang|LLVM) version)":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is Clang using "--version" did not match "(clang version)":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is ARMClang using "--version" did not match "armclang":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is OrangeC using "--version" did not match "occ \\(OrangeC\\) Version":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is HP using "-V" did not match "HP C":
+      nasm: error: unrecognised option `-V'
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is Intel using "--version" did not match "(ICC)":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is IntelLLVM using "--version" did not match "(Intel[^
+      ]+oneAPI)":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is SunPro using "-V" did not match "Sun C":
+      nasm: error: unrecognised option `-V'
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is XL using "-qversion" did not match "XL C":
+      nasm: error: unrecognised option `-q'
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is MSVC using "-?" did not match "Microsoft":
+      Usage: /usr/bin/nasm [-@ response_file] [options...] [--] filename
+        Options:
+          -v (or --v)    print the NASM version number and exit
+          -@ file        response file; one command line option per line
+          -h             list command line options and exit (also --help)
+          -h -opt        show additional help for option "-opt"
+          -h all         show all available command line help
+          -h topics      show list of help topics (also -h list)
+          -o outfile     write output to outfile
+          --keep-all     output files will not be removed even if an error happens
+          -Xformat       specify error reporting format (see -h -X)
+          -s             redirect messages to stdout
+          -Zfile         redirect messages to file
+          --info[=lvl]   display optional informational messages
+          --debug[=lvl]  display NASM internal debugging messages
+          -M...          generate Makefile dependencies (see -h -M)
+          -f format      select output file format (see -h -f)
+          -g             generate debugging information
+          -F format      select a debugging format (see -h -F)
+          -gformat       same as -g -F format
+          -l listfile    write listing to a list file
+          -Lflags...     add information to the list file (see -h -L)
+          -Oflags...     select optimization (see -h -O)
+          -t             assemble in limited SciTech TASM compatible mode
+          -E (or -e)     preprocess only (writes output to stdout by default)
+          -a             don't preprocess (assemble only)
+          -Ipath         add a pathname to the include file path
+          -Pfile         pre-include a file (also --include)
+          -Dmacro[=str]  pre-define a macro
+          -Umacro        undefine a macro
+          -w+x           enable warning x  (see -h -w)(also -Wx)
+          -w-x           disable warning x (also -Wno-x)
+          -w[+-]error    promote all warnings to errors (also -Werror)
+          -w[+-]error=x  promote warning x to errors (also -Werror=x)
+          --pragma str   pre-executes a specific %pragma
+          --before str   add line (usually a preprocessor statement) before the input
+          --bits nn      set bits to nn (equivalent to --before "BITS nn")
+          --no-line      ignore %line directives in input
+          --gprefix str  prepend the given string to the names of all extern,
+                         common and global symbols (also --prefix)
+          --gpostfix str append the given string to the names of all extern,
+                         common and global symbols (also --postfix)
+          --lprefix str  prepend the given string to local symbols
+          --lpostfix str append the given string to local symbols
+          --reproducible attempt to produce run-to-run identical output
+          --limit-X val  set execution limit X (see -h --limit)
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is TI using "-h" did not match "Texas Instruments":
+      Usage: /usr/bin/nasm [-@ response_file] [options...] [--] filename
+        Options:
+          -v (or --v)    print the NASM version number and exit
+          -@ file        response file; one command line option per line
+          -h             list command line options and exit (also --help)
+          -h -opt        show additional help for option "-opt"
+          -h all         show all available command line help
+          -h topics      show list of help topics (also -h list)
+          -o outfile     write output to outfile
+          --keep-all     output files will not be removed even if an error happens
+          -Xformat       specify error reporting format (see -h -X)
+          -s             redirect messages to stdout
+          -Zfile         redirect messages to file
+          --info[=lvl]   display optional informational messages
+          --debug[=lvl]  display NASM internal debugging messages
+          -M...          generate Makefile dependencies (see -h -M)
+          -f format      select output file format (see -h -f)
+          -g             generate debugging information
+          -F format      select a debugging format (see -h -F)
+          -gformat       same as -g -F format
+          -l listfile    write listing to a list file
+          -Lflags...     add information to the list file (see -h -L)
+          -Oflags...     select optimization (see -h -O)
+          -t             assemble in limited SciTech TASM compatible mode
+          -E (or -e)     preprocess only (writes output to stdout by default)
+          -a             don't preprocess (assemble only)
+          -Ipath         add a pathname to the include file path
+          -Pfile         pre-include a file (also --include)
+          -Dmacro[=str]  pre-define a macro
+          -Umacro        undefine a macro
+          -w+x           enable warning x  (see -h -w)(also -Wx)
+          -w-x           disable warning x (also -Wno-x)
+          -w[+-]error    promote all warnings to errors (also -Werror)
+          -w[+-]error=x  promote warning x to errors (also -Werror=x)
+          --pragma str   pre-executes a specific %pragma
+          --before str   add line (usually a preprocessor statement) before the input
+          --bits nn      set bits to nn (equivalent to --before "BITS nn")
+          --no-line      ignore %line directives in input
+          --gprefix str  prepend the given string to the names of all extern,
+                         common and global symbols (also --prefix)
+          --gpostfix str append the given string to the names of all extern,
+                         common and global symbols (also --postfix)
+          --lprefix str  prepend the given string to local symbols
+          --lpostfix str append the given string to local symbols
+          --reproducible attempt to produce run-to-run identical output
+          --limit-X val  set execution limit X (see -h --limit)
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is TIClang using "--version" did not match "(TI (.*) Clang Compiler)":
+      NASM version 3.01
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is IAR using "" did not match "IAR Assembler":
+      nasm: fatal: no input file specified
+      Usage: /usr/bin/nasm [-@ response_file] [options...] [--] filename
+         For additional help:
+             /usr/bin/nasm -h [run|topics|all|-option]
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is Diab using "-V" did not match "Wind River Systems":
+      nasm: error: unrecognised option `-V'
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1303 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is ARMCC using "" did not match "(ARM Compiler)|(ARM Assembler)|(Arm Compiler)":
+      nasm: fatal: no input file specified
+      Usage: /usr/bin/nasm [-@ response_file] [options...] [--] filename
+         For additional help:
+             /usr/bin/nasm -h [run|topics|all|-option]
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake:1290 (message)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASMCompiler.cmake:170 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "/usr/share/cmake-4.2/Modules/CMakeDetermineASM_NASMCompiler.cmake:22 (include)"
+      - "CMakeLists.txt:7 (project)"
+    message: |
+      Checking whether the ASM_NASM compiler is NASM using "-v" matched "(NASM version)":
+      NASM version 3.01
   -
     kind: "try_compile-v1"
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
       - "/usr/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv"
-      binary: "/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv"
+      source: "/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc"
+      binary: "/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -3347,15 +3530,15 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv'
+        Change Dir: '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4ad99/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_4ad99.dir/build.make CMakeFiles/cmTC_4ad99.dir/build
-        gmake[1]: Entering directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv'
-        Building CXX object CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/x86_64-linux-gnu-g++   -v -o CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_141f0/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_141f0.dir/build.make CMakeFiles/cmTC_141f0.dir/build
+        gmake[1]: Entering directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc'
+        Building CXX object CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
-        COLLECT_GCC=/usr/bin/x86_64-linux-gnu-g++
+        COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
         OFFLOAD_TARGET_DEFAULT=1
         Target: x86_64-linux-gnu
@@ -3363,8 +3546,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 15.2.0 (Ubuntu 15.2.0-16ubuntu1) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4ad99.dir/'
-         /usr/libexec/gcc/x86_64-linux-gnu/15/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_4ad99.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -fzero-init-padding-bits=all -Wbidi-chars=any -o /tmp/ccc5oO89.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141f0.dir/'
+         /usr/libexec/gcc/x86_64-linux-gnu/15/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_141f0.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -fzero-init-padding-bits=all -Wbidi-chars=any -o /tmp/ccOyAkWe.s
         GNU C++17 (Ubuntu 15.2.0-16ubuntu1) version 15.2.0 (x86_64-linux-gnu)
         	compiled by GNU C version 15.2.0, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -3385,16 +3568,16 @@ events:
          /usr/include
         End of search list.
         Compiler executable checksum: b661a74662ad7cf413c4193391ab5290
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4ad99.dir/'
-         /usr/bin/x86_64-linux-gnu-as -v --64 -o CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccc5oO89.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141f0.dir/'
+         /usr/bin/x86_64-linux-gnu-as -v --64 -o CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccOyAkWe.s
         GNU assembler version 2.46 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.46
         COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_4ad99
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ad99.dir/link.txt --verbose=1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_141f0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_141f0.dir/link.txt --verbose=1
         Using built-in specs.
-        COLLECT_GCC=/usr/bin/x86_64-linux-gnu-g++
+        COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
         OFFLOAD_TARGET_DEFAULT=1
@@ -3405,14 +3588,11 @@ events:
         gcc version 15.2.0 (Ubuntu 15.2.0-16ubuntu1) 
         COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4ad99' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_4ad99.'
-         /usr/libexec/gcc/x86_64-linux-gnu/15/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccucqTwV.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4ad99 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/15 -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o
-        collect2 version 15.2.0
-        /usr/bin/ld -plugin /usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccucqTwV.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4ad99 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/15 -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o
-        GNU ld (GNU Binutils for Ubuntu) 2.46
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4ad99' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_4ad99.'
-        /usr/bin/x86_64-linux-gnu-g++  -v -Wl,-v CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_4ad99
-        gmake[1]: Leaving directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141f0' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141f0.'
+         /usr/libexec/gcc/x86_64-linux-gnu/15/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDo90W2.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_141f0 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/15 -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/15/../../.. -L/lib -L/usr/lib CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141f0' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141f0.'
+        /usr/bin/c++  -v CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_141f0
+        gmake[1]: Leaving directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc'
         
       exitCode: 0
   -
@@ -3420,7 +3600,7 @@ events:
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
       - "/usr/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
@@ -3448,20 +3628,20 @@ events:
     backtrace:
       - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
       - "/usr/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
+      - "CMakeLists.txt:7 (project)"
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv']
+        ignore line: [Change Dir: '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4ad99/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_4ad99.dir/build.make CMakeFiles/cmTC_4ad99.dir/build]
-        ignore line: [gmake[1]: Entering directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-QD5pkv']
-        ignore line: [Building CXX object CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/x86_64-linux-gnu-g++   -v -o CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_141f0/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_141f0.dir/build.make CMakeFiles/cmTC_141f0.dir/build]
+        ignore line: [gmake[1]: Entering directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc']
+        ignore line: [Building CXX object CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj -c /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/bin/x86_64-linux-gnu-g++]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
         ignore line: [OFFLOAD_TARGET_DEFAULT=1]
         ignore line: [Target: x86_64-linux-gnu]
@@ -3469,8 +3649,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
         ignore line: [gcc version 15.2.0 (Ubuntu 15.2.0-16ubuntu1) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4ad99.dir/']
-        ignore line: [ /usr/libexec/gcc/x86_64-linux-gnu/15/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_4ad99.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -fzero-init-padding-bits=all -Wbidi-chars=any -o /tmp/ccc5oO89.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141f0.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-linux-gnu/15/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_141f0.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -fzero-init-padding-bits=all -Wbidi-chars=any -o /tmp/ccOyAkWe.s]
         ignore line: [GNU C++17 (Ubuntu 15.2.0-16ubuntu1) version 15.2.0 (x86_64-linux-gnu)]
         ignore line: [	compiled by GNU C version 15.2.0  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
         ignore line: []
@@ -3491,16 +3671,16 @@ events:
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: b661a74662ad7cf413c4193391ab5290]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4ad99.dir/']
-        ignore line: [ /usr/bin/x86_64-linux-gnu-as -v --64 -o CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccc5oO89.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141f0.dir/']
+        ignore line: [ /usr/bin/x86_64-linux-gnu-as -v --64 -o CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj /tmp/ccOyAkWe.s]
         ignore line: [GNU assembler version 2.46 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.46]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_4ad99]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4ad99.dir/link.txt --verbose=1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_141f0]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_141f0.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
-        ignore line: [COLLECT_GCC=/usr/bin/x86_64-linux-gnu-g++]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
         ignore line: [OFFLOAD_TARGET_DEFAULT=1]
@@ -3511,13 +3691,13 @@ events:
         ignore line: [gcc version 15.2.0 (Ubuntu 15.2.0-16ubuntu1) ]
         ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/15/:/usr/libexec/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/15/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/15/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_4ad99' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_4ad99.']
-        link line: [ /usr/libexec/gcc/x86_64-linux-gnu/15/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccucqTwV.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4ad99 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/15 -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141f0' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141f0.']
+        link line: [ /usr/libexec/gcc/x86_64-linux-gnu/15/collect2 -plugin /usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDo90W2.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_141f0 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/15 -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/15/../../.. -L/lib -L/usr/lib CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/libexec/gcc/x86_64-linux-gnu/15/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccucqTwV.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccDo90W2.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -3535,7 +3715,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_4ad99] ==> ignore
+          arg [cmTC_141f0] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o]
@@ -3549,8 +3729,7 @@ events:
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/15/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/15/../../..]
           arg [-L/lib] ==> dir [/lib]
           arg [-L/usr/lib] ==> dir [/usr/lib]
-          arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -3560,9 +3739,11 @@ events:
           arg [-lgcc] ==> lib [gcc]
           arg [/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o]
-        ignore line: [collect2 version 15.2.0]
-        ignore line: [/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-linux-gnu/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-linux-gnu/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccucqTwV.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_4ad99 /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/15 -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/15/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_4ad99.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/15/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o]
-        linker tool for 'CXX': /usr/bin/ld
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_141f0' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_141f0.']
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_141f0.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_141f0]
+        ignore line: [gmake[1]: Leaving directory '/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/CMakeScratch/TryCompile-h5R5nc']
+        ignore line: []
+        ignore line: []
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
         collapse obj [/usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
@@ -3582,14 +3763,3 @@ events:
         implicit fwks: []
       
       
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "/usr/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "/usr/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:2 (project)"
-    message: |
-      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
-      GNU ld (GNU Binutils for Ubuntu) 2.46
-...

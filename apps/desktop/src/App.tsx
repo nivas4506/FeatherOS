@@ -1,122 +1,212 @@
 import { useEffect, useMemo, useState } from "react";
-import { activity, files, tools } from "./mockData";
-import type { IconName, View } from "./types";
 
-const navItems: { label: View; icon: IconName; badge?: string }[] = [
-  { label: "Overview", icon: "grid" },
-  { label: "Workspace", icon: "folder" },
-  { label: "Memory", icon: "brain", badge: "12" },
-  { label: "Tools", icon: "spark" },
-  { label: "Activity", icon: "pulse" },
+type AppId = "files" | "terminal" | "monitor" | "settings";
+type WindowPosition = { top: number; left: number };
+type DirectoryEntry = { name: string; path: string; isDirectory: boolean };
+type SystemStats = { cpuCount: number; memoryTotal: number; memoryFree: number; uptime: number; platform: string; hostname: string };
+
+type IconName =
+  | "folder"
+  | "terminal"
+  | "monitor"
+  | "settings"
+  | "search"
+  | "wifi"
+  | "volume"
+  | "battery"
+  | "power"
+  | "grid"
+  | "close"
+  | "minus"
+  | "maximize"
+  | "chevron";
+
+const apps: { id: AppId; label: string; icon: IconName; color: string }[] = [
+  { id: "files", label: "Files", icon: "folder", color: "blue" },
+  { id: "terminal", label: "Terminal", icon: "terminal", color: "violet" },
+  { id: "monitor", label: "System Monitor", icon: "monitor", color: "mint" },
+  { id: "settings", label: "Settings", icon: "settings", color: "slate" },
 ];
 
 function Icon({ name, size = 18 }: { name: IconName; size?: number }) {
   const paths: Record<IconName, string> = {
-    grid: "M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z",
-    folder: "M3 6.5A2.5 2.5 0 0 1 5.5 4H10l2 2h6.5A2.5 2.5 0 0 1 21 8.5v7a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 16z",
-    brain: "M9.5 4.5a3 3 0 0 0-5.5 1.7A3 3 0 0 0 5 12a3 3 0 0 0 2 5.5A3 3 0 0 0 13 16V8a3.5 3.5 0 0 0-3.5-3.5ZM14.5 4.5a3 3 0 0 1 5.5 1.7A3 3 0 0 1 19 12a3 3 0 0 1-2 5.5A3 3 0 0 1 11 16V8a3.5 3.5 0 0 1 3.5-3.5Z",
-    spark: "m12 3 1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6zM19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7z",
-    pulse: "M3 12h4l2-6 4 12 2-6h6",
+    folder: "M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z",
+    terminal: "m5 7 5 5-5 5m8 0h6",
+    monitor: "M4 5h16v11H4zM9 20h6m-8-4h10",
     settings: "M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm8-3.5 2-1.1-2-3.4-2.1.8a8 8 0 0 0-1.7-1L16 5h-4l-.3 2.3a8 8 0 0 0-1.7 1L8 7.5l-2 3.4L8 12a7 7 0 0 0 0 2l-2 1.1 2 3.4 2.1-.8a8 8 0 0 0 1.7 1L12 21h4l.3-2.3a8 8 0 0 0 1.7-1l2.1.8 2-3.4-2-1.1a7 7 0 0 0 0-2Z",
     search: "m20 20-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z",
-    bell: "M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 22h4",
-    plus: "M12 5v14M5 12h14",
-    arrow: "M5 12h13m-5-5 5 5-5 5",
-    terminal: "m5 7 5 5-5 5m8 0h6",
-    check: "m5 12 4 4L19 6",
-    clock: "M12 7v5l3 2m6-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z",
-    shield: "M12 3 20 6v5c0 5-3.4 8.2-8 10-4.6-1.8-8-5-8-10V6z",
-    cpu: "M9 9h6v6H9zM9 3v3m6-3v3m-6 12v3m6-3v3M3 9h3m-3 6h3m12-6h3m-3 6h3",
-    memory: "M5 5h14v14H5zM8 8h8v8H8z",
-    disk: "M4 5h16v14H4zM8 15h8M8 9h.01",
-    chevron: "m7 10 5 5 5-5",
-    command: "M5 4h14v16H5zM9 8h6M9 12h6M9 16h3",
+    wifi: "M3 8.5a14 14 0 0 1 18 0M6.5 12a8.5 8.5 0 0 1 11 0M10 15.5a3.5 3.5 0 0 1 4 0M12 19h.01",
+    volume: "M4 10v4h4l5 4V6l-5 4zm12-1a5 5 0 0 1 0 6m2-8a9 9 0 0 1 0 10",
+    battery: "M4 8h15v8H4zM21 11v2",
+    power: "M12 3v9m5.7-6.1a8 8 0 1 1-11.4 0",
+    grid: "M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z",
     close: "m6 6 12 12M18 6 6 18",
     minus: "M5 12h14",
     maximize: "M6 6h12v12H6z",
+    chevron: "m7 10 5 5 5-5",
   };
 
   return (
-    <svg aria-hidden="true" className="icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg className="icon" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d={paths[name]} />
     </svg>
   );
 }
 
-function Metric({ icon, label, value, note, color }: { icon: IconName; label: string; value: string; note: string; color: string }) {
+function AppWindow({ id, position, zIndex, onClose, onMinimize, onActivate, onMove }: { id: AppId; position: WindowPosition; zIndex: number; onClose: () => void; onMinimize: () => void; onActivate: () => void; onMove: (position: WindowPosition) => void }) {
+  const meta = apps.find((app) => app.id === id)!;
+  const [dragging, setDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0, top: 0, left: 0 });
+  const beginDrag = (event: React.PointerEvent<HTMLElement>) => {
+    if ((event.target as HTMLElement).closest("button")) return;
+    onActivate();
+    setDragging(true);
+    setDragStart({ x: event.clientX, y: event.clientY, top: position.top, left: position.left });
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+  const drag = (event: React.PointerEvent<HTMLElement>) => {
+    if (dragging) onMove({ top: Math.max(45, dragStart.top + event.clientY - dragStart.y), left: Math.max(8, dragStart.left + event.clientX - dragStart.x) });
+  };
   return (
-    <article className="metric-card">
-      <div className={`metric-icon ${color}`}><Icon name={icon} /></div>
-      <div className="metric-copy"><span>{label}</span><strong>{value}</strong><small>{note}</small></div>
-      <span className={`metric-dot ${color}`} />
-    </article>
+    <section className={`desktop-window window-${id}`} style={{ top: position.top, left: position.left, right: "auto", zIndex }} onMouseDown={onActivate}>
+      <header className="window-titlebar" onPointerDown={beginDrag} onPointerMove={drag} onPointerUp={() => setDragging(false)}>
+        <div className={`app-window-icon ${meta.color}`}><Icon name={meta.icon} size={15} /></div>
+        <strong>{meta.label}</strong>
+        <div className="window-controls">
+          <button aria-label="Minimize" onClick={onMinimize}><Icon name="minus" size={14} /></button>
+          <button aria-label="Maximize"><Icon name="maximize" size={13} /></button>
+          <button aria-label="Close" onClick={onClose}><Icon name="close" size={14} /></button>
+        </div>
+      </header>
+      {id === "files" && <FilesContent />}
+      {id === "terminal" && <TerminalContent />}
+      {id === "monitor" && <MonitorContent />}
+      {id === "settings" && <SettingsContent />}
+    </section>
   );
+}
+
+function FilesContent() {
+  const [directory, setDirectory] = useState("~");
+  const [entries, setEntries] = useState<DirectoryEntry[]>([]);
+  const [error, setError] = useState("");
+  const refresh = () => void window.featherDesktop?.listDirectory(directory).then(setEntries).catch((reason: Error) => setError(reason.message));
+  useEffect(refresh, [directory]);
+  const createFolder = async () => {
+    const name = window.prompt("New folder name");
+    if (!name?.trim()) return;
+    await window.featherDesktop?.makeDirectory(`${directory}/${name.trim()}`);
+    refresh();
+  };
+  const removeEntry = async (entry: DirectoryEntry) => {
+    if (!window.confirm(`Move ${entry.name} to trash?`)) return;
+    await window.featherDesktop?.removePath(entry.path);
+    refresh();
+  };
+  return <div className="window-content files-content"><aside className="file-sidebar"><strong>Places</strong><span className="selected" onClick={() => setDirectory("~")}><Icon name="folder" size={15} /> Home</span><span><Icon name="folder" size={15} /> Desktop</span><span><Icon name="folder" size={15} /> Documents</span><span><Icon name="folder" size={15} /> Downloads</span><hr /><strong>Devices</strong><span><Icon name="battery" size={15} /> Feather Disk</span></aside><div className="file-main"><div className="file-toolbar"><button onClick={() => setDirectory("~")}><Icon name="chevron" size={15} /></button><span>{directory}</span><button onClick={createFolder}>+ Folder</button><button className="toolbar-search" onClick={refresh}><Icon name="search" size={14} /></button></div>{error ? <p className="window-error">{error}</p> : <div className="file-grid">{entries.map((entry) => <FileItem key={entry.path} icon={entry.isDirectory ? "folder" : "terminal"} label={entry.name} onOpen={() => entry.isDirectory ? setDirectory(entry.path) : undefined} onRemove={() => void removeEntry(entry)} />)}</div>}</div></div>;
+}
+
+function FileItem({ icon, label, onOpen, onRemove }: { icon: IconName; label: string; onOpen: () => void; onRemove: () => void }) {
+  return <button className="file-item" onDoubleClick={onOpen} onContextMenu={(event) => { event.preventDefault(); void onRemove(); }}><div className="file-item-icon"><Icon name={icon} size={28} /></div><span>{label}</span></button>;
+}
+
+function TerminalContent() {
+  const [command, setCommand] = useState("");
+  const [output, setOutput] = useState("FeatherOS terminal connected. Type a command to execute it through the desktop bridge.");
+  const run = async () => {
+    if (!command.trim()) return;
+    try {
+      const result = await window.featherDesktop?.execute(command);
+      setOutput(`${output}\n$ ${command}\n${result?.stdout || result?.stderr || "(completed)"}`);
+    } catch (reason) {
+      setOutput(`${output}\n$ ${command}\n${reason instanceof Error ? reason.message : String(reason)}`);
+    }
+    setCommand("");
+  };
+  return <div className="terminal-content"><pre>{output}</pre><div><span className="terminal-green">nivas@feather</span><span className="terminal-muted">:</span><span className="terminal-blue">~</span><span className="terminal-muted">$</span> <input className="terminal-input" autoFocus value={command} onChange={(event) => setCommand(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") void run(); }} /><span className="cursor" /></div></div>;
+}
+
+function MonitorContent() {
+  const [stats, setStats] = useState<SystemStats>();
+  useEffect(() => { const update = () => void window.featherDesktop?.stats().then(setStats); update(); const timer = window.setInterval(update, 3000); return () => window.clearInterval(timer); }, []);
+  const memoryUsed = stats ? Math.round((1 - stats.memoryFree / stats.memoryTotal) * 100) : 0;
+  return <div className="window-content monitor-content"><div className="monitor-summary"><div><span>CPU cores</span><strong>{stats?.cpuCount ?? "—"}</strong></div><div><span>Memory used</span><strong>{stats ? `${memoryUsed}%` : "—"}</strong></div><div><span>Uptime</span><strong>{stats ? `${Math.floor(stats.uptime / 3600)}h` : "—"}</strong></div></div><div className="usage-chart"><svg viewBox="0 0 600 170" preserveAspectRatio="none"><path d="M0 125 C60 110 80 140 130 90 S190 125 240 80 S300 110 350 70 S420 110 470 60 S540 95 600 38" fill="none" stroke="#72d8c0" strokeWidth="3" /></svg></div><div className="process-row"><span>featherd</span><span>{stats?.hostname ?? "System daemon"}</span><b>online</b></div><div className="process-row"><span>desktop-shell</span><span>{stats?.platform ?? "Electron UI"}</span><b>ready</b></div></div>;
+}
+
+function SettingsContent() {
+  return <div className="window-content settings-content"><div className="settings-card"><div className="settings-symbol"><Icon name="settings" size={28} /></div><div><h3>FeatherOS Settings</h3><p>Personalize your desktop environment.</p></div></div><label className="setting-row"><span>Dark appearance</span><input type="checkbox" defaultChecked /></label><label className="setting-row"><span>Show system telemetry</span><input type="checkbox" defaultChecked /></label><label className="setting-row"><span>Launch Feather daemon on startup</span><input type="checkbox" defaultChecked /></label></div>;
 }
 
 function App() {
-  const [view, setView] = useState<View>("Overview");
-  const [command, setCommand] = useState("");
-  const [history, setHistory] = useState(["Connected to featherd", "Workspace session opened at ~/FeatherOS"]);
-  const [paletteOpen, setPaletteOpen] = useState(false);
-  const [notice, setNotice] = useState("System healthy");
-
+  const [openApps, setOpenApps] = useState<AppId[]>(["files"]);
+  const [startOpen, setStartOpen] = useState(false);
+  const [quickPanelOpen, setQuickPanelOpen] = useState(false);
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [powerOpen, setPowerOpen] = useState(false);
+  const [notifications, setNotifications] = useState<string[]>([]);
+  const [minimizedApps, setMinimizedApps] = useState<AppId[]>([]);
+  const [positions, setPositions] = useState<Record<AppId, WindowPosition>>({ files: { top: 92, left: 160 }, terminal: { top: 150, left: 420 }, monitor: { top: 110, left: 720 }, settings: { top: 135, left: 610 } });
+  const [workspace, setWorkspace] = useState(1);
+  const [time, setTime] = useState(new Date());
+  const [search, setSearch] = useState("");
+  const [activeApp, setActiveApp] = useState<AppId>("files");
+  useEffect(() => {
+    const timer = window.setInterval(() => setTime(new Date()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
-      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      if (event.altKey && event.key === "Tab") {
         event.preventDefault();
-        setPaletteOpen((open) => !open);
+        const next = apps.find((app) => app.id !== activeApp && openApps.includes(app.id));
+        if (next) setActiveApp(next.id);
       }
-      if (event.key === "Escape") setPaletteOpen(false);
+      if (event.key === "Escape") { setStartOpen(false); setQuickPanelOpen(false); setCalendarOpen(false); setPowerOpen(false); }
+      if (event.ctrlKey && event.key >= "1" && event.key <= "4") setWorkspace(Number(event.key));
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [activeApp, openApps]);
 
-  const greeting = useMemo(() => {
-    const hour = new Date().getHours();
-    return hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
-  }, []);
-
-  const runCommand = () => {
-    const value = command.trim();
-    if (!value) return;
-    setHistory((items) => [...items, `$ ${value}`, "Queued through Aegis safety guard"]);
-    setCommand("");
-    setNotice("Command queued");
-    window.setTimeout(() => setNotice("System healthy"), 2500);
+  const dateLabel = useMemo(() => time.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }), [time]);
+  const timeLabel = useMemo(() => time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }), [time]);
+  const launch = (id: AppId) => {
+    setOpenApps((current) => current.includes(id) ? current : [...current, id]);
+    setMinimizedApps((current) => current.filter((app) => app !== id));
+    setActiveApp(id);
+    setStartOpen(false);
   };
+  const close = (id: AppId) => { setOpenApps((current) => current.filter((app) => app !== id)); setMinimizedApps((current) => current.filter((app) => app !== id)); };
+  const move = (id: AppId, position: WindowPosition) => setPositions((current) => ({ ...current, [id]: position }));
+  const notify = (message: string) => { setNotifications((current) => [...current, message]); window.setTimeout(() => setNotifications((current) => current.filter((item) => item !== message)), 3500); };
 
-  const renderContent = () => {
-    if (view === "Workspace") {
-      return <section className="page-grid workspace-page"><div className="section-heading"><div><p className="eyebrow">Workspace explorer</p><h2>Your FeatherOS files</h2></div><button className="primary-button"><Icon name="plus" size={16} /> New workspace</button></div><div className="file-grid">{files.map((file) => <article className="file-card" key={file.name}><div className={`file-icon ${file.color}`}><Icon name={file.type === "folder" ? "folder" : "command"} size={20} /></div><strong>{file.name}</strong><span>{file.meta}</span><Icon name="chevron" size={16} /></article>)}</div></section>;
-    }
-    if (view === "Memory") {
-      return <section className="page-grid"><div className="section-heading"><div><p className="eyebrow">Synapse journal</p><h2>Memory at a glance</h2></div><button className="ghost-button"><Icon name="search" size={16} /> Search memory</button></div><div className="memory-hero"><div className="memory-orb"><Icon name="brain" size={42} /></div><div><span className="status-label mint-text">INDEXED AND READY</span><h3>1,284 workspace memories</h3><p>Semantic context is available to Feather agents across this workspace.</p></div><strong className="memory-score">94<span>%</span></strong></div><div className="activity-list">{activity.map((item) => <div className="activity-row" key={item.time}><span>{item.time}</span><div className={`activity-line ${item.tone}`} /><div><strong>{item.title}</strong><small>{item.detail}</small></div></div>)}</div></section>;
-    }
-    if (view === "Tools") {
-      return <section className="page-grid"><div className="section-heading"><div><p className="eyebrow">Agent bus</p><h2>Tools & capabilities</h2></div><span className="pill"><span className="live-dot" /> 4 online</span></div><div className="tool-table">{tools.map((tool) => <div className="tool-row" key={tool.name}><div className="tool-symbol"><Icon name={tool.icon} size={17} /></div><div><strong>{tool.name}</strong><small>{tool.group}</small></div><span className="tool-status">{tool.status}</span><button className="icon-button"><Icon name="arrow" size={16} /></button></div>)}</div></section>;
-    }
-    if (view === "Activity") {
-      return <section className="page-grid"><div className="section-heading"><div><p className="eyebrow">Event stream</p><h2>Recent activity</h2></div><button className="ghost-button"><Icon name="pulse" size={16} /> Live stream</button></div><div className="activity-list activity-list-large">{activity.concat(activity).map((item, index) => <div className="activity-row" key={`${item.time}-${index}`}><span>{item.time}</span><div className={`activity-line ${item.tone}`} /><div><strong>{item.title}</strong><small>{item.detail}</small></div><span className="row-action"><Icon name="check" size={15} /></span></div>)}</div></section>;
-    }
-    return <Overview command={command} setCommand={setCommand} runCommand={runCommand} history={history} greeting={greeting} />;
-  };
-
-  return (
-    <div className="app-shell">
-      <header className="window-bar"><div className="brand"><div className="brand-mark"><span /></div><strong>FeatherOS</strong><span className="brand-divider" /><span className="brand-context">Desktop</span></div><div className="window-actions"><button onClick={() => void window.featherDesktop?.minimize()}><Icon name="minus" size={15} /></button><button onClick={() => void window.featherDesktop?.toggleMaximize()}><Icon name="maximize" size={14} /></button><button className="window-close" onClick={() => void window.featherDesktop?.close()}><Icon name="close" size={15} /></button></div></header>
-      <div className="app-body">
-        <aside className="sidebar"><div className="sidebar-top"><div className="workspace-switcher"><div className="workspace-avatar">F</div><div><strong>FeatherOS</strong><span>Local workspace</span></div><Icon name="chevron" size={15} /></div><button className="new-button"><Icon name="plus" size={17} /> New session <kbd>⌘ N</kbd></button></div><nav>{navItems.map((item) => <button className={view === item.label ? "nav-item active" : "nav-item"} onClick={() => setView(item.label)} key={item.label}><Icon name={item.icon} /><span>{item.label}</span>{item.badge && <em>{item.badge}</em>}</button>)}</nav><div className="sidebar-bottom"><div className="daemon-card"><span className="live-dot" /><div><strong>featherd online</strong><small>v0.2.0 · 24ms</small></div><Icon name="pulse" size={16} /></div><button className="nav-item"><Icon name="settings" /><span>Settings</span></button><div className="profile"><div className="profile-avatar">NA</div><div><strong>Nivas</strong><span>Personal account</span></div><Icon name="chevron" size={15} /></div></div></aside>
-        <main className="main-content"><div className="topbar"><div className="breadcrumbs"><span>FeatherOS</span><Icon name="chevron" size={14} /><strong>{view}</strong></div><div className="topbar-actions"><button className="search-trigger" onClick={() => setPaletteOpen(true)}><Icon name="search" size={16} /><span>Search anything</span><kbd>⌘ K</kbd></button><button className="round-button"><Icon name="bell" size={17} /><i /></button><div className="top-avatar">NA</div></div></div><div className="content-scroll">{renderContent()}</div></main>
+  return <div className="os-shell" onClick={() => { setStartOpen(false); setQuickPanelOpen(false); }}>
+    <header className="system-bar" onClick={(event) => event.stopPropagation()}>
+      <button className="system-brand" onClick={() => setStartOpen((open) => !open)}><span className="feather-mark">✦</span><strong>FeatherOS</strong></button>
+      <nav className="system-menu"><button>Activities</button><button onClick={() => launch("files")}>Places</button><button onClick={() => launch("terminal")}>Terminal</button></nav>
+      <div className="system-status"><button className="date-button" onClick={() => setCalendarOpen((open) => !open)}>{dateLabel}</button><span>{timeLabel}</span><button className="status-button" onClick={() => setQuickPanelOpen((open) => !open)}><Icon name="wifi" size={15} /><Icon name="volume" size={15} /><Icon name="battery" size={16} /><Icon name="chevron" size={12} /></button><button className="power-button" onClick={() => setPowerOpen((open) => !open)}><Icon name="power" size={15} /></button></div>
+    </header>
+    <main className="desktop-area" onDoubleClick={() => launch("files")}>
+      <div className="desktop-icons" onClick={(event) => event.stopPropagation()}>
+        <DesktopIcon icon="folder" label="Home" color="blue" onOpen={() => launch("files")} />
+        <DesktopIcon icon="folder" label="File System" color="amber" onOpen={() => launch("files")} />
+        <DesktopIcon icon="monitor" label="System Monitor" color="mint" onOpen={() => launch("monitor")} />
+        <DesktopIcon icon="terminal" label="Terminal" color="violet" onOpen={() => launch("terminal")} />
       </div>
-      <div className={`toast ${notice === "System healthy" ? "" : "toast-visible"}`}><span className="live-dot" />{notice}</div>
-      {paletteOpen && <div className="palette-backdrop" onClick={() => setPaletteOpen(false)}><div className="command-palette" onClick={(event) => event.stopPropagation()}><div className="palette-input"><Icon name="search" /><input autoFocus placeholder="Search commands, files, memory..." onKeyDown={(event) => { if (event.key === "Escape") setPaletteOpen(false); }} /></div><div className="palette-section"><span>Quick actions</span><button onClick={() => { setView("Overview"); setPaletteOpen(false); }}><Icon name="grid" /> Open overview <kbd>Enter</kbd></button><button onClick={() => { setView("Memory"); setPaletteOpen(false); }}><Icon name="brain" /> Search memory <kbd>M</kbd></button><button onClick={() => { setView("Tools"); setPaletteOpen(false); }}><Icon name="spark" /> Browse tools <kbd>T</kbd></button></div></div></div>}
-    </div>
-  );
+      {openApps.filter((id) => !minimizedApps.includes(id) && workspace === 1).map((id) => <AppWindow key={id} id={id} position={positions[id]} zIndex={activeApp === id ? 20 : 10} onActivate={() => setActiveApp(id)} onMove={(position) => move(id, position)} onClose={() => close(id)} onMinimize={() => setMinimizedApps((current) => [...current, id])} />)}
+    </main>
+    <footer className="dock" onClick={(event) => event.stopPropagation()}>{apps.map((app) => <button className={`dock-item ${activeApp === app.id && openApps.includes(app.id) ? "active" : ""}`} key={app.id} onClick={() => launch(app.id)}><span className={`dock-icon ${app.color}`}><Icon name={app.icon} size={22} /></span><span className="dock-label">{app.label}</span></button>)}<span className="dock-divider" /><button className="dock-item" onClick={() => setStartOpen((open) => !open)}><span className="dock-icon power"><Icon name="grid" size={21} /></span><span className="dock-label">Applications</span></button></footer>
+    {startOpen && <div className="start-menu" onClick={(event) => event.stopPropagation()}><div className="start-header"><div className="user-avatar">N</div><div><strong>Nivas</strong><span>FeatherOS desktop · Workspace {workspace}</span></div><button onClick={() => setPowerOpen(true)}><Icon name="power" size={17} /></button></div><div className="start-search"><Icon name="search" size={15} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search applications" autoFocus /></div><div className="start-grid">{apps.filter((app) => app.label.toLowerCase().includes(search.toLowerCase())).map((app) => <button key={app.id} onClick={() => launch(app.id)}><span className={`start-app-icon ${app.color}`}><Icon name={app.icon} size={21} /></span><span>{app.label}</span></button>)}</div><div className="start-footer"><button onClick={() => launch("settings")}><Icon name="settings" size={14} /> Settings</button><button onClick={() => setPowerOpen(true)}><Icon name="power" size={14} /> Power</button></div></div>}
+    {quickPanelOpen && <aside className="quick-panel" onClick={(event) => event.stopPropagation()}><div className="quick-heading"><strong>Quick settings</strong><button onClick={() => launch("settings")}><Icon name="settings" size={16} /></button></div><div className="quick-tile active"><Icon name="wifi" /><span><strong>Wi-Fi</strong><small>FeatherNet</small></span></div><div className="quick-tile"><Icon name="volume" /><span><strong>Sound</strong><small>Built-in Audio</small></span></div><div className="brightness"><span>Brightness</span><input type="range" defaultValue="80" /></div><div className="quick-footer"><span>FeatherOS 0.2.0</span><span>Connected</span></div></aside>}
+    {calendarOpen && <aside className="calendar-panel" onClick={(event) => event.stopPropagation()}><strong>{time.toLocaleDateString(undefined, { month: "long", year: "numeric" })}</strong><div className="calendar-date">{time.getDate()}</div><span>{time.toLocaleDateString(undefined, { weekday: "long" })}</span><small>No events today</small></aside>}
+    {powerOpen && <div className="power-overlay" onClick={() => setPowerOpen(false)}><div className="power-menu" onClick={(event) => event.stopPropagation()}><strong>Power options</strong><button onClick={() => void window.featherDesktop?.power("logout")}><Icon name="power" /> Log out</button><button onClick={() => void window.featherDesktop?.power("restart")}><Icon name="monitor" /> Restart</button><button onClick={() => void window.featherDesktop?.power("shutdown")}><Icon name="close" /> Shut down</button></div></div>}
+    <div className="workspace-switcher">{[1, 2, 3, 4].map((item) => <button key={item} className={workspace === item ? "selected" : ""} onClick={() => setWorkspace(item)}>{item}</button>)}</div>
+    <div className="notifications">{notifications.map((message) => <div key={message}><span className="live-dot" />{message}</div>)}</div>
+  </div>;
 }
 
-function Overview({ command, setCommand, runCommand, history, greeting }: { command: string; setCommand: (value: string) => void; runCommand: () => void; history: string[]; greeting: string }) {
-  return <section className="page-grid overview-page"><div className="hero-heading"><div><p className="eyebrow">Monday, October 19, 2026</p><h1>{greeting}, Nivas <span className="wave">✦</span></h1><p className="hero-subtitle">Your system is calm, connected, and ready to build.</p></div><button className="status-pill"><span className="live-dot" /> All systems operational <Icon name="chevron" size={14} /></button></div><div className="metrics-grid"><Metric icon="cpu" label="CPU load" value="18.4%" note="↓ 4.2% from yesterday" color="violet" /><Metric icon="memory" label="Memory" value="6.8 GB" note="of 16 GB available" color="blue" /><Metric icon="disk" label="Disk space" value="72%" note="184 GB remaining" color="amber" /><Metric icon="shield" label="Safety guard" value="Active" note="0 blocked actions" color="mint" /></div><div className="dashboard-grid"><div className="panel shell-panel"><div className="panel-heading"><div><span className="panel-kicker"><Icon name="terminal" size={14} /> Cognitive shell</span><h3>What would you like to do?</h3></div><span className="connection-label"><span className="live-dot" /> Connected</span></div><div className="command-box"><span className="command-prompt">›</span><input value={command} onChange={(event) => setCommand(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter") runCommand(); }} placeholder="Ask Feather or run a command..." /><button onClick={runCommand}><Icon name="arrow" size={18} /></button></div><div className="suggestion-row"><button onClick={() => setCommand("check disk space and find largest folders")}><Icon name="disk" size={14} /> Check disk</button><button onClick={() => setCommand("show active tools")}><Icon name="spark" size={14} /> Show tools</button><button onClick={() => setCommand(":status")}><Icon name="pulse" size={14} /> System status</button></div><div className="shell-history">{history.slice(-3).map((line, index) => <div key={`${line}-${index}`}><span className={line.startsWith("$") ? "history-command" : "history-muted"}>{line}</span></div>)}</div></div><div className="panel plan-panel"><div className="panel-heading"><div><span className="panel-kicker"><Icon name="spark" size={14} /> Active intelligence</span><h3>Workspace pulse</h3></div><button className="icon-button"><Icon name="arrow" size={16} /></button></div><div className="pulse-chart"><div className="chart-glow" /><svg viewBox="0 0 420 150" preserveAspectRatio="none"><defs><linearGradient id="chart" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor="#a78bfa" stopOpacity=".3" /><stop offset="1" stopColor="#a78bfa" stopOpacity="0" /></linearGradient></defs><path d="M0 120 C32 106 42 112 69 88 S111 103 139 79 S170 34 199 69 S238 104 269 63 S302 81 326 48 S363 60 420 18 V150 H0Z" fill="url(#chart)" /><path d="M0 120 C32 106 42 112 69 88 S111 103 139 79 S170 34 199 69 S238 104 269 63 S302 81 326 48 S363 60 420 18" fill="none" stroke="#bba7ff" strokeWidth="2.5" /></svg><div className="chart-labels"><span>10:00</span><span>12:00</span><span>14:00</span><span>Now</span></div></div><div className="pulse-summary"><div><strong>12</strong><span>memory events</span></div><div><strong>8</strong><span>tool calls</span></div><div><strong>0</strong><span>blocked</span></div></div></div></div><div className="lower-grid"><div className="panel"><div className="panel-heading"><div><span className="panel-kicker"><Icon name="clock" size={14} /> Timeline</span><h3>Recent activity</h3></div><button className="text-button">View all <Icon name="arrow" size={14} /></button></div><div className="activity-list">{activity.map((item) => <div className="activity-row" key={item.time}><span>{item.time}</span><div className={`activity-line ${item.tone}`} /><div><strong>{item.title}</strong><small>{item.detail}</small></div></div>)}</div></div><div className="panel snapshot-card"><div className="snapshot-art"><div className="snapshot-ring" /><Icon name="shield" size={25} /></div><div><span className="panel-kicker">Latest snapshot</span><h3>Safe to experiment</h3><p>Workspace checkpoint created 4 minutes ago.</p><button className="text-button">Open snapshots <Icon name="arrow" size={14} /></button></div></div></div></section>;
+function DesktopIcon({ icon, label, color, onOpen }: { icon: IconName; label: string; color: string; onOpen: () => void }) {
+  return <button className="desktop-icon" onDoubleClick={onOpen}><span className={`desktop-icon-art ${color}`}><Icon name={icon} size={28} /></span><span>{label}</span></button>;
 }
 
 export default App;

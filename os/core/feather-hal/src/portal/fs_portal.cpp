@@ -21,18 +21,6 @@ public:
 
     Expected<std::string>
     read_to_string(const std::filesystem::path& path) override {
-        portal_fs_request_t req{};
-        req.op = PORTAL_FS_READ;
-        std::string path_str = path.string();
-        std::strncpy(req.path, path_str.c_str(), sizeof(req.path) - 1);
-        req.read.offset = 0;
-        req.read.length = UINT64_MAX; // Read entire file
-
-        int ret = portal_fs_op(&req);
-        if (ret < 0) {
-            return Expected<std::string>::err(std::string("portal_fs_op READ failed: ") + std::strerror(-ret));
-        }
-
         return read_file_via_portal(path);
     }
 
@@ -166,14 +154,14 @@ private:
             std::strncpy(read_req.path, path_str.c_str(), sizeof(read_req.path) - 1);
             read_req.read.offset = offset;
             read_req.read.length = chunk;
+            // Point data buffer into our result string
+            read_req.read.data = reinterpret_cast<uint8_t*>(result.data() + offset);
 
             ret = portal_fs_op(&read_req);
             if (ret < 0) {
                 throw std::system_error(-ret, std::generic_category(), "read failed");
             }
 
-            // Kernel writes data to result buffer (simplified)
-            // Real impl: portal_recv or shared memory
             offset += chunk;
         }
         return result;

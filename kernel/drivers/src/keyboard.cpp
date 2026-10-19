@@ -36,7 +36,8 @@ static void push_char(char c) {
 }
 
 void keyboard_init() {
-    head = tail = 0;
+    tail = 0;
+    head = 0;
     shift = false;
     extended = false;
 }

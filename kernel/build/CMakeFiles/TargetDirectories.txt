@@ -1,5 +1,0 @@
-/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/kernel.elf.dir
-/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/iso.dir
-/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/clean-iso.dir
-/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build/CMakeFiles/rebuild_cache.dir

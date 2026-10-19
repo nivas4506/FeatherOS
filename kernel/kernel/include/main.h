@@ -1,8 +1,10 @@
 #pragma once
+
+#include <cstdint>
 // FeatherOS Kernel — Main entry
 
 namespace feather::kernel {
 
-extern "C" void kernel_main();
+extern "C" void kernel_main(uint32_t multiboot_magic, uint32_t multiboot_information);
 
 } // namespace feather::kernel

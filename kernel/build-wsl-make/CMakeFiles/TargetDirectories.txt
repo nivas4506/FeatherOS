@@ -1,0 +1,6 @@
+/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build-wsl-make/CMakeFiles/kernel_elf.dir
+/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build-wsl-make/CMakeFiles/iso.dir
+/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build-wsl-make/CMakeFiles/clean-iso.dir
+/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build-wsl-make/CMakeFiles/clean-all.dir
+/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build-wsl-make/CMakeFiles/edit_cache.dir
+/mnt/c/Users/A/OneDrive/Documents/FeatherOS/kernel/build-wsl-make/CMakeFiles/rebuild_cache.dir

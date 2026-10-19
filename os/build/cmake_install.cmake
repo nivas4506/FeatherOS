@@ -54,22 +54,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-exec/cmake_install.cmake")
+  include("C:/Users/A/OneDrive/Documents/FeatherOS/os/build/stub/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-snapshot/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/featherd/cmake_install.cmake")
+  include("C:/Users/A/OneDrive/Documents/FeatherOS/os/build/demo/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT

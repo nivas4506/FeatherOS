@@ -462,106 +462,106 @@ build services/feather-watch/install/strip: phony services/feather-watch/CMakeFi
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target aegis-exec
+# Object build statements for STATIC_LIBRARY target portal-stub
 
 
 #############################################
-# Order-only phony target for aegis-exec
+# Order-only phony target for portal-stub
 
-build cmake_object_order_depends_target_aegis-exec: phony || cmake_object_order_depends_target_feather-hal
+build cmake_object_order_depends_target_portal-stub: phony || .
 
-build safety/aegis-exec/CMakeFiles/aegis-exec.dir/src/safety.cpp.obj: CXX_COMPILER__aegis-exec_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-exec/src/safety.cpp || cmake_object_order_depends_target_aegis-exec
+build stub/CMakeFiles/portal-stub.dir/portal_stub.cpp.obj: CXX_COMPILER__portal-stub_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/stub/portal_stub.cpp || cmake_object_order_depends_target_portal-stub
   CONFIG = Debug
   DEFINES = -DFEATHER_KERNEL_PORTAL=1
-  DEP_FILE = safety\aegis-exec\CMakeFiles\aegis-exec.dir\src\safety.cpp.obj.d
+  DEP_FILE = stub\CMakeFiles\portal-stub.dir\portal_stub.cpp.obj.d
   FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Wno-unused-parameter -fstack-protector-strong -D_FORTIFY_SOURCE=2 -g -O0 -DFEATHER_DEBUG
-  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-exec/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include
-  OBJECT_DIR = safety\aegis-exec\CMakeFiles\aegis-exec.dir
-  OBJECT_FILE_DIR = safety\aegis-exec\CMakeFiles\aegis-exec.dir\src
-  TARGET_SUPPORT_DIR = safety\aegis-exec\CMakeFiles\aegis-exec.dir
+  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include
+  OBJECT_DIR = stub\CMakeFiles\portal-stub.dir
+  OBJECT_FILE_DIR = stub\CMakeFiles\portal-stub.dir
+  TARGET_SUPPORT_DIR = stub\CMakeFiles\portal-stub.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target aegis-exec
+# Link build statements for STATIC_LIBRARY target portal-stub
 
 
 #############################################
-# Link the static library safety\aegis-exec\libaegis-exec.a
+# Link the static library stub\libportal-stub.a
 
-build safety/aegis-exec/libaegis-exec.a: CXX_STATIC_LIBRARY_LINKER__aegis-exec_Debug safety/aegis-exec/CMakeFiles/aegis-exec.dir/src/safety.cpp.obj || core/feather-hal/libfeather-hal.a
+build stub/libportal-stub.a: CXX_STATIC_LIBRARY_LINKER__portal-stub_Debug stub/CMakeFiles/portal-stub.dir/portal_stub.cpp.obj
   CONFIG = Debug
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = safety\aegis-exec\CMakeFiles\aegis-exec.dir
+  OBJECT_DIR = stub\CMakeFiles\portal-stub.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = safety\aegis-exec\libaegis-exec.a
-  TARGET_PDB = aegis-exec.a.dbg
-  TARGET_SUPPORT_DIR = safety\aegis-exec\CMakeFiles\aegis-exec.dir
+  TARGET_FILE = stub\libportal-stub.a
+  TARGET_PDB = portal-stub.a.dbg
+  TARGET_SUPPORT_DIR = stub\CMakeFiles\portal-stub.dir
 
 
 #############################################
 # Utility command for edit_cache
 
-build safety/aegis-exec/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-exec && C:\MinGW\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+build stub/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\stub && C:\MinGW\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build safety/aegis-exec/edit_cache: phony safety/aegis-exec/CMakeFiles/edit_cache.util
+build stub/edit_cache: phony stub/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build safety/aegis-exec/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-exec && C:\MinGW\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\A\OneDrive\Documents\FeatherOS\os -BC:\Users\A\OneDrive\Documents\FeatherOS\os\build"
+build stub/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\stub && C:\MinGW\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\A\OneDrive\Documents\FeatherOS\os -BC:\Users\A\OneDrive\Documents\FeatherOS\os\build"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build safety/aegis-exec/rebuild_cache: phony safety/aegis-exec/CMakeFiles/rebuild_cache.util
+build stub/rebuild_cache: phony stub/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build safety/aegis-exec/list_install_components: phony
+build stub/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build safety/aegis-exec/CMakeFiles/install.util: CUSTOM_COMMAND safety/aegis-exec/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-exec && C:\MinGW\ucrt64\bin\cmake.exe -P cmake_install.cmake"
+build stub/CMakeFiles/install.util: CUSTOM_COMMAND stub/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\stub && C:\MinGW\ucrt64\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build safety/aegis-exec/install: phony safety/aegis-exec/CMakeFiles/install.util
+build stub/install: phony stub/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build safety/aegis-exec/CMakeFiles/install/local.util: CUSTOM_COMMAND safety/aegis-exec/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-exec && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build stub/CMakeFiles/install/local.util: CUSTOM_COMMAND stub/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\stub && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build safety/aegis-exec/install/local: phony safety/aegis-exec/CMakeFiles/install/local.util
+build stub/install/local: phony stub/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build safety/aegis-exec/CMakeFiles/install/strip.util: CUSTOM_COMMAND safety/aegis-exec/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-exec && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+build stub/CMakeFiles/install/strip.util: CUSTOM_COMMAND stub/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\stub && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build safety/aegis-exec/install/strip: phony safety/aegis-exec/CMakeFiles/install/strip.util
+build stub/install/strip: phony stub/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -569,339 +569,111 @@ build safety/aegis-exec/install/strip: phony safety/aegis-exec/CMakeFiles/instal
 # =============================================================================
 
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target aegis-snapshot
+# Object build statements for EXECUTABLE target featheros-demo
 
 
 #############################################
-# Order-only phony target for aegis-snapshot
+# Order-only phony target for featheros-demo
 
-build cmake_object_order_depends_target_aegis-snapshot: phony || cmake_object_order_depends_target_feather-hal
+build cmake_object_order_depends_target_featheros-demo: phony || cmake_object_order_depends_target_feather-hal cmake_object_order_depends_target_feather-ipc cmake_object_order_depends_target_feather-watch cmake_object_order_depends_target_portal-stub
 
-build safety/aegis-snapshot/CMakeFiles/aegis-snapshot.dir/src/snapshot.cpp.obj: CXX_COMPILER__aegis-snapshot_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-snapshot/src/snapshot.cpp || cmake_object_order_depends_target_aegis-snapshot
+build demo/CMakeFiles/featheros-demo.dir/main.cpp.obj: CXX_COMPILER__featheros-demo_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/demo/main.cpp || cmake_object_order_depends_target_featheros-demo
   CONFIG = Debug
   DEFINES = -DFEATHER_KERNEL_PORTAL=1
-  DEP_FILE = safety\aegis-snapshot\CMakeFiles\aegis-snapshot.dir\src\snapshot.cpp.obj.d
+  DEP_FILE = demo\CMakeFiles\featheros-demo.dir\main.cpp.obj.d
   FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Wno-unused-parameter -fstack-protector-strong -D_FORTIFY_SOURCE=2 -g -O0 -DFEATHER_DEBUG
-  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-snapshot/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include
-  OBJECT_DIR = safety\aegis-snapshot\CMakeFiles\aegis-snapshot.dir
-  OBJECT_FILE_DIR = safety\aegis-snapshot\CMakeFiles\aegis-snapshot.dir\src
-  TARGET_SUPPORT_DIR = safety\aegis-snapshot\CMakeFiles\aegis-snapshot.dir
+  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../services/feather-watch/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/kernel/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/include
+  OBJECT_DIR = demo\CMakeFiles\featheros-demo.dir
+  OBJECT_FILE_DIR = demo\CMakeFiles\featheros-demo.dir
+  TARGET_SUPPORT_DIR = demo\CMakeFiles\featheros-demo.dir
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target aegis-snapshot
+# Link build statements for EXECUTABLE target featheros-demo
 
 
 #############################################
-# Link the static library safety\aegis-snapshot\libaegis-snapshot.a
+# Link the executable demo\featheros-demo.exe
 
-build safety/aegis-snapshot/libaegis-snapshot.a: CXX_STATIC_LIBRARY_LINKER__aegis-snapshot_Debug safety/aegis-snapshot/CMakeFiles/aegis-snapshot.dir/src/snapshot.cpp.obj || core/feather-hal/libfeather-hal.a
-  CONFIG = Debug
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = safety\aegis-snapshot\CMakeFiles\aegis-snapshot.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = safety\aegis-snapshot\libaegis-snapshot.a
-  TARGET_PDB = aegis-snapshot.a.dbg
-  TARGET_SUPPORT_DIR = safety\aegis-snapshot\CMakeFiles\aegis-snapshot.dir
-
-
-#############################################
-# Utility command for edit_cache
-
-build safety/aegis-snapshot/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-snapshot && C:\MinGW\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build safety/aegis-snapshot/edit_cache: phony safety/aegis-snapshot/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build safety/aegis-snapshot/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-snapshot && C:\MinGW\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\A\OneDrive\Documents\FeatherOS\os -BC:\Users\A\OneDrive\Documents\FeatherOS\os\build"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build safety/aegis-snapshot/rebuild_cache: phony safety/aegis-snapshot/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build safety/aegis-snapshot/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build safety/aegis-snapshot/CMakeFiles/install.util: CUSTOM_COMMAND safety/aegis-snapshot/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-snapshot && C:\MinGW\ucrt64\bin\cmake.exe -P cmake_install.cmake"
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build safety/aegis-snapshot/install: phony safety/aegis-snapshot/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build safety/aegis-snapshot/CMakeFiles/install/local.util: CUSTOM_COMMAND safety/aegis-snapshot/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-snapshot && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build safety/aegis-snapshot/install/local: phony safety/aegis-snapshot/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build safety/aegis-snapshot/CMakeFiles/install/strip.util: CUSTOM_COMMAND safety/aegis-snapshot/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\safety\aegis-snapshot && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build safety/aegis-snapshot/install/strip: phony safety/aegis-snapshot/CMakeFiles/install/strip.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/A/OneDrive/Documents/FeatherOS/os/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target synapsed
-
-
-#############################################
-# Order-only phony target for synapsed
-
-build cmake_object_order_depends_target_synapsed: phony || cmake_object_order_depends_target_feather-hal
-
-build services/synapsed/CMakeFiles/synapsed.dir/src/synapsed.cpp.obj: CXX_COMPILER__synapsed_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/synapsed/src/synapsed.cpp || cmake_object_order_depends_target_synapsed
-  CONFIG = Debug
-  DEFINES = -DFEATHER_KERNEL_PORTAL=1
-  DEP_FILE = services\synapsed\CMakeFiles\synapsed.dir\src\synapsed.cpp.obj.d
-  FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Wno-unused-parameter -fstack-protector-strong -D_FORTIFY_SOURCE=2 -g -O0 -DFEATHER_DEBUG
-  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/synapsed/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include
-  OBJECT_DIR = services\synapsed\CMakeFiles\synapsed.dir
-  OBJECT_FILE_DIR = services\synapsed\CMakeFiles\synapsed.dir\src
-  TARGET_SUPPORT_DIR = services\synapsed\CMakeFiles\synapsed.dir
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target synapsed
-
-
-#############################################
-# Link the static library services\synapsed\libsynapsed.a
-
-build services/synapsed/libsynapsed.a: CXX_STATIC_LIBRARY_LINKER__synapsed_Debug services/synapsed/CMakeFiles/synapsed.dir/src/synapsed.cpp.obj || core/feather-hal/libfeather-hal.a
-  CONFIG = Debug
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = services\synapsed\CMakeFiles\synapsed.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = services\synapsed\libsynapsed.a
-  TARGET_PDB = synapsed.a.dbg
-  TARGET_SUPPORT_DIR = services\synapsed\CMakeFiles\synapsed.dir
-
-
-#############################################
-# Utility command for edit_cache
-
-build services/synapsed/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\synapsed && C:\MinGW\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build services/synapsed/edit_cache: phony services/synapsed/CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build services/synapsed/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\synapsed && C:\MinGW\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\A\OneDrive\Documents\FeatherOS\os -BC:\Users\A\OneDrive\Documents\FeatherOS\os\build"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build services/synapsed/rebuild_cache: phony services/synapsed/CMakeFiles/rebuild_cache.util
-
-
-#############################################
-# Utility command for list_install_components
-
-build services/synapsed/list_install_components: phony
-
-
-#############################################
-# Utility command for install
-
-build services/synapsed/CMakeFiles/install.util: CUSTOM_COMMAND services/synapsed/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\synapsed && C:\MinGW\ucrt64\bin\cmake.exe -P cmake_install.cmake"
-  DESC = Install the project...
-  pool = console
-  restat = 1
-
-build services/synapsed/install: phony services/synapsed/CMakeFiles/install.util
-
-
-#############################################
-# Utility command for install/local
-
-build services/synapsed/CMakeFiles/install/local.util: CUSTOM_COMMAND services/synapsed/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\synapsed && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
-  DESC = Installing only the local directory...
-  pool = console
-  restat = 1
-
-build services/synapsed/install/local: phony services/synapsed/CMakeFiles/install/local.util
-
-
-#############################################
-# Utility command for install/strip
-
-build services/synapsed/CMakeFiles/install/strip.util: CUSTOM_COMMAND services/synapsed/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\synapsed && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
-  DESC = Installing the project stripped...
-  pool = console
-  restat = 1
-
-build services/synapsed/install/strip: phony services/synapsed/CMakeFiles/install/strip.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/A/OneDrive/Documents/FeatherOS/os/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for EXECUTABLE target featherd
-
-
-#############################################
-# Order-only phony target for featherd
-
-build cmake_object_order_depends_target_featherd: phony || cmake_object_order_depends_target_aegis-exec cmake_object_order_depends_target_aegis-snapshot cmake_object_order_depends_target_feather-hal cmake_object_order_depends_target_feather-ipc cmake_object_order_depends_target_feather-watch cmake_object_order_depends_target_synapsed
-
-build services/featherd/CMakeFiles/featherd.dir/src/main.cpp.obj: CXX_COMPILER__featherd_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd/src/main.cpp || cmake_object_order_depends_target_featherd
-  CONFIG = Debug
-  DEFINES = -DFEATHERD_PORTAL=1 -DFEATHER_KERNEL_PORTAL=1
-  DEP_FILE = services\featherd\CMakeFiles\featherd.dir\src\main.cpp.obj.d
-  FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Wno-unused-parameter -fstack-protector-strong -D_FORTIFY_SOURCE=2 -g -O0 -DFEATHER_DEBUG
-  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/kernel/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-exec/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-snapshot/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/synapsed/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/build/include
-  OBJECT_DIR = services\featherd\CMakeFiles\featherd.dir
-  OBJECT_FILE_DIR = services\featherd\CMakeFiles\featherd.dir\src
-  TARGET_SUPPORT_DIR = services\featherd\CMakeFiles\featherd.dir
-
-build services/featherd/CMakeFiles/featherd.dir/src/portal/daemon_portal.cpp.obj: CXX_COMPILER__featherd_unscanned_Debug C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd/src/portal/daemon_portal.cpp || cmake_object_order_depends_target_featherd
-  CONFIG = Debug
-  DEFINES = -DFEATHERD_PORTAL=1 -DFEATHER_KERNEL_PORTAL=1
-  DEP_FILE = services\featherd\CMakeFiles\featherd.dir\src\portal\daemon_portal.cpp.obj.d
-  FLAGS = -g -std=c++20 -Wall -Wextra -Wpedantic -Wno-unused-parameter -fstack-protector-strong -D_FORTIFY_SOURCE=2 -g -O0 -DFEATHER_DEBUG
-  INCLUDES = -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/../kernel/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/src -IC:/Users/A/OneDrive/Documents/FeatherOS/os/kernel/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-exec/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-snapshot/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/synapsed/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/include -IC:/Users/A/OneDrive/Documents/FeatherOS/os/build/include
-  OBJECT_DIR = services\featherd\CMakeFiles\featherd.dir
-  OBJECT_FILE_DIR = services\featherd\CMakeFiles\featherd.dir\src\portal
-  TARGET_SUPPORT_DIR = services\featherd\CMakeFiles\featherd.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target featherd
-
-
-#############################################
-# Link the executable services\featherd\featherd.exe
-
-build services/featherd/featherd.exe: CXX_EXECUTABLE_LINKER__featherd_Debug services/featherd/CMakeFiles/featherd.dir/src/main.cpp.obj services/featherd/CMakeFiles/featherd.dir/src/portal/daemon_portal.cpp.obj | core/feather-hal/libfeather-hal.a services/feather-ipc/libfeather-ipc.a safety/aegis-exec/libaegis-exec.a safety/aegis-snapshot/libaegis-snapshot.a services/synapsed/libsynapsed.a services/feather-watch/libfeather-watch.a core/feather-hal/libfeather-hal.a || core/feather-hal/libfeather-hal.a safety/aegis-exec/libaegis-exec.a safety/aegis-snapshot/libaegis-snapshot.a services/feather-ipc/libfeather-ipc.a services/feather-watch/libfeather-watch.a services/synapsed/libsynapsed.a
+build demo/featheros-demo.exe: CXX_EXECUTABLE_LINKER__featheros-demo_Debug demo/CMakeFiles/featheros-demo.dir/main.cpp.obj | core/feather-hal/libfeather-hal.a services/feather-ipc/libfeather-ipc.a services/feather-watch/libfeather-watch.a stub/libportal-stub.a core/feather-hal/libfeather-hal.a || core/feather-hal/libfeather-hal.a services/feather-ipc/libfeather-ipc.a services/feather-watch/libfeather-watch.a stub/libportal-stub.a
   CONFIG = Debug
   FLAGS = -g
-  LINK_LIBRARIES = core/feather-hal/libfeather-hal.a  services/feather-ipc/libfeather-ipc.a  safety/aegis-exec/libaegis-exec.a  safety/aegis-snapshot/libaegis-snapshot.a  services/synapsed/libsynapsed.a  services/feather-watch/libfeather-watch.a  core/feather-hal/libfeather-hal.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = services\featherd\CMakeFiles\featherd.dir
+  LINK_LIBRARIES = core/feather-hal/libfeather-hal.a  services/feather-ipc/libfeather-ipc.a  services/feather-watch/libfeather-watch.a  stub/libportal-stub.a  core/feather-hal/libfeather-hal.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = demo\CMakeFiles\featheros-demo.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = services\featherd\featherd.exe
-  TARGET_IMPLIB = services\featherd\libfeatherd.dll.a
-  TARGET_PDB = featherd.exe.dbg
-  TARGET_SUPPORT_DIR = services\featherd\CMakeFiles\featherd.dir
+  TARGET_FILE = demo\featheros-demo.exe
+  TARGET_IMPLIB = demo\libfeatheros-demo.dll.a
+  TARGET_PDB = featheros-demo.exe.dbg
+  TARGET_SUPPORT_DIR = demo\CMakeFiles\featheros-demo.dir
 
 
 #############################################
 # Utility command for edit_cache
 
-build services/featherd/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\featherd && C:\MinGW\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+build demo/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\demo && C:\MinGW\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build services/featherd/edit_cache: phony services/featherd/CMakeFiles/edit_cache.util
+build demo/edit_cache: phony demo/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build services/featherd/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\featherd && C:\MinGW\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\A\OneDrive\Documents\FeatherOS\os -BC:\Users\A\OneDrive\Documents\FeatherOS\os\build"
+build demo/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\demo && C:\MinGW\ucrt64\bin\cmake.exe --regenerate-during-build -SC:\Users\A\OneDrive\Documents\FeatherOS\os -BC:\Users\A\OneDrive\Documents\FeatherOS\os\build"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build services/featherd/rebuild_cache: phony services/featherd/CMakeFiles/rebuild_cache.util
+build demo/rebuild_cache: phony demo/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build services/featherd/list_install_components: phony
+build demo/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build services/featherd/CMakeFiles/install.util: CUSTOM_COMMAND services/featherd/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\featherd && C:\MinGW\ucrt64\bin\cmake.exe -P cmake_install.cmake"
+build demo/CMakeFiles/install.util: CUSTOM_COMMAND demo/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\demo && C:\MinGW\ucrt64\bin\cmake.exe -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build services/featherd/install: phony services/featherd/CMakeFiles/install.util
+build demo/install: phony demo/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build services/featherd/CMakeFiles/install/local.util: CUSTOM_COMMAND services/featherd/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\featherd && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build demo/CMakeFiles/install/local.util: CUSTOM_COMMAND demo/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\demo && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build services/featherd/install/local: phony services/featherd/CMakeFiles/install/local.util
+build demo/install/local: phony demo/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build services/featherd/CMakeFiles/install/strip.util: CUSTOM_COMMAND services/featherd/all
-  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\services\featherd && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+build demo/CMakeFiles/install/strip.util: CUSTOM_COMMAND demo/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\A\OneDrive\Documents\FeatherOS\os\build\demo && C:\MinGW\ucrt64\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build services/featherd/install/strip: phony services/featherd/CMakeFiles/install/strip.util
+build demo/install/strip: phony demo/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Target aliases.
-
-build aegis-exec: phony safety/aegis-exec/libaegis-exec.a
-
-build aegis-snapshot: phony safety/aegis-snapshot/libaegis-snapshot.a
 
 build feather-hal: phony core/feather-hal/libfeather-hal.a
 
@@ -909,13 +681,9 @@ build feather-ipc: phony services/feather-ipc/libfeather-ipc.a
 
 build feather-watch: phony services/feather-watch/libfeather-watch.a
 
-build featherd: phony services/featherd/featherd.exe
+build featheros-demo: phony demo/featheros-demo.exe
 
-build featherd.exe: phony services/featherd/featherd.exe
-
-build libaegis-exec.a: phony safety/aegis-exec/libaegis-exec.a
-
-build libaegis-snapshot.a: phony safety/aegis-snapshot/libaegis-snapshot.a
+build featheros-demo.exe: phony demo/featheros-demo.exe
 
 build libfeather-hal.a: phony core/feather-hal/libfeather-hal.a
 
@@ -923,9 +691,9 @@ build libfeather-ipc.a: phony services/feather-ipc/libfeather-ipc.a
 
 build libfeather-watch.a: phony services/feather-watch/libfeather-watch.a
 
-build libsynapsed.a: phony services/synapsed/libsynapsed.a
+build libportal-stub.a: phony stub/libportal-stub.a
 
-build synapsed: phony services/synapsed/libsynapsed.a
+build portal-stub: phony stub/libportal-stub.a
 
 # =============================================================================
 # Folder targets.
@@ -935,7 +703,7 @@ build synapsed: phony services/synapsed/libsynapsed.a
 #############################################
 # Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build
 
-build all: phony core/feather-hal/all services/feather-ipc/all services/feather-watch/all safety/aegis-exec/all safety/aegis-snapshot/all services/synapsed/all services/featherd/all
+build all: phony core/feather-hal/all services/feather-ipc/all services/feather-watch/all stub/all demo/all
 
 # =============================================================================
 
@@ -947,16 +715,9 @@ build core/feather-hal/all: phony core/feather-hal/libfeather-hal.a
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-exec
+# Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build/demo
 
-build safety/aegis-exec/all: phony safety/aegis-exec/libaegis-exec.a
-
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-snapshot
-
-build safety/aegis-snapshot/all: phony safety/aegis-snapshot/libaegis-snapshot.a
+build demo/all: phony demo/featheros-demo.exe
 
 # =============================================================================
 
@@ -975,16 +736,9 @@ build services/feather-watch/all: phony services/feather-watch/libfeather-watch.
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/featherd
+# Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build/stub
 
-build services/featherd/all: phony services/featherd/featherd.exe
-
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed
-
-build services/synapsed/all: phony services/synapsed/libsynapsed.a
+build stub/all: phony stub/libportal-stub.a
 
 # =============================================================================
 # Built-in targets
@@ -993,14 +747,14 @@ build services/synapsed/all: phony services/synapsed/libsynapsed.a
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/core/feather-hal/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-ipc/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-watch/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-exec/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/safety/aegis-snapshot/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/featherd/cmake_install.cmake: RERUN_CMAKE | C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckIncludeFileCXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindThreads.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-exec/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-snapshot/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/synapsed/CMakeLists.txt CMakeCache.txt CMakeFiles/4.3.4/CMakeCXXCompiler.cmake CMakeFiles/4.3.4/CMakeRCCompiler.cmake CMakeFiles/4.3.4/CMakeSystem.cmake
+build build.ninja C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/core/feather-hal/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-ipc/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/feather-watch/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/stub/cmake_install.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/build/demo/cmake_install.cmake: RERUN_CMAKE | C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckIncludeFileCXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindThreads.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/demo/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/stub/CMakeLists.txt CMakeCache.txt CMakeFiles/4.3.4/CMakeCXXCompiler.cmake CMakeFiles/4.3.4/CMakeRCCompiler.cmake CMakeFiles/4.3.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckIncludeFileCXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindThreads.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-exec/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/safety/aegis-snapshot/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/synapsed/CMakeLists.txt CMakeCache.txt CMakeFiles/4.3.4/CMakeCXXCompiler.cmake CMakeFiles/4.3.4/CMakeRCCompiler.cmake CMakeFiles/4.3.4/CMakeSystem.cmake: phony
+build C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckIncludeFileCXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Compiler/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/ExternalProject/shared_internal_commands.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FetchContent/CMakeLists.cmake.in C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindPackageMessage.cmake C$:/MinGW/ucrt64/share/cmake/Modules/FindThreads.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/Windows.cmake C$:/MinGW/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake C$:/Users/A/OneDrive/Documents/FeatherOS/os/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/core/feather-hal/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/demo/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-ipc/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/services/feather-watch/CMakeLists.txt C$:/Users/A/OneDrive/Documents/FeatherOS/os/stub/CMakeLists.txt CMakeCache.txt CMakeFiles/4.3.4/CMakeCXXCompiler.cmake CMakeFiles/4.3.4/CMakeRCCompiler.cmake CMakeFiles/4.3.4/CMakeSystem.cmake: phony
 
 
 #############################################

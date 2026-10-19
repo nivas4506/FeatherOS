@@ -1,6 +1,8 @@
 // FeatherOS Kernel — string implementation
 #include "string.h"
 
+#include <cstddef>
+
 namespace feather::lib {
 
 size_t strlen(const char* s) {

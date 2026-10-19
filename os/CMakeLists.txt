@@ -107,10 +107,16 @@ include_directories(
 add_subdirectory(core/feather-hal)
 add_subdirectory(services/feather-ipc)
 add_subdirectory(services/feather-watch)
-add_subdirectory(safety/aegis-exec)
-add_subdirectory(safety/aegis-snapshot)
-add_subdirectory(services/synapsed)
-add_subdirectory(services/featherd)
+# add_subdirectory(safety/aegis-exec)      # TODO: update interfaces for PORTAL
+# add_subdirectory(safety/aegis-snapshot)  # TODO: update interfaces for PORTAL
+# add_subdirectory(services/synapsed)      # TODO: update interfaces for PORTAL
+# add_subdirectory(services/featherd)      # TODO: update interfaces for PORTAL
+
+# Portal kernel stub (for demo without running kernel)
+add_subdirectory(stub)
+
+# Demo application
+add_subdirectory(demo)
 
 message(STATUS "")
 message(STATUS "╔══════════════════════════════════════════════════════╗")

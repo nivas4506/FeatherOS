@@ -320,8 +320,26 @@ featherd_IS_TOP_LEVEL:STATIC=OFF
 //Value Computed by CMake
 featherd_SOURCE_DIR:STATIC=C:/Users/A/OneDrive/Documents/FeatherOS/os/services/featherd
 
+//Value Computed by CMake
+featheros-demo_BINARY_DIR:STATIC=C:/Users/A/OneDrive/Documents/FeatherOS/os/build/demo
+
+//Value Computed by CMake
+featheros-demo_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+featheros-demo_SOURCE_DIR:STATIC=C:/Users/A/OneDrive/Documents/FeatherOS/os/demo
+
 //The directory containing a CMake configuration file for nlohmann_json.
 nlohmann_json_DIR:PATH=nlohmann_json_DIR-NOTFOUND
+
+//Value Computed by CMake
+portal-stub_BINARY_DIR:STATIC=C:/Users/A/OneDrive/Documents/FeatherOS/os/build/stub
+
+//Value Computed by CMake
+portal-stub_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+portal-stub_SOURCE_DIR:STATIC=C:/Users/A/OneDrive/Documents/FeatherOS/os/stub
 
 //Value Computed by CMake
 synapsed_BINARY_DIR:STATIC=C:/Users/A/OneDrive/Documents/FeatherOS/os/build/services/synapsed
@@ -425,7 +443,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

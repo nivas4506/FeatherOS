@@ -1,0 +1,6 @@
+C:/Users/A/OneDrive/Documents/FeatherOS/kernel/build-win-bfd/CMakeFiles/kernel_elf.dir
+C:/Users/A/OneDrive/Documents/FeatherOS/kernel/build-win-bfd/CMakeFiles/iso.dir
+C:/Users/A/OneDrive/Documents/FeatherOS/kernel/build-win-bfd/CMakeFiles/clean-iso.dir
+C:/Users/A/OneDrive/Documents/FeatherOS/kernel/build-win-bfd/CMakeFiles/clean-all.dir
+C:/Users/A/OneDrive/Documents/FeatherOS/kernel/build-win-bfd/CMakeFiles/edit_cache.dir
+C:/Users/A/OneDrive/Documents/FeatherOS/kernel/build-win-bfd/CMakeFiles/rebuild_cache.dir

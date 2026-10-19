@@ -22,7 +22,8 @@ uint64_t pit_ticks() {
 }
 
 void pit_handler() {
-    ticks++;
+    uint64_t t = ticks;
+    ticks = t + 1;
     task::scheduler_tick();
 }
 

@@ -19,9 +19,9 @@ namespace feather::watch {
  * Polls portal_fs_op for directory changes (simplified for MVP)
  * Real implementation would use kernel event notifications
  * ────────────────────────────────────────────────────────────── */
-class PortalWorkspaceWatcher final : public WorkspaceWatcher {
+class PortalWorkspaceWatcher final : public IWorkspaceWatcher {
 public:
-    explicit PortalWorkspaceWatcher(EventCallback cb) : WorkspaceWatcher(std::move(cb)) {}
+    explicit PortalWorkspaceWatcher(EventCallback cb) : cb_(std::move(cb)) {}
 
     ~PortalWorkspaceWatcher() { stop(); }
 
@@ -39,8 +39,13 @@ public:
         if (thread_.joinable()) thread_.join();
     }
 
+    std::vector<std::filesystem::path> roots() const override {
+        std::lock_guard<std::mutex> lock(roots_mutex_);
+        return roots_;
+    }
+
 private:
-    void run() override {
+    void run() {
         // For MVP: poll directory listings periodically
         // Real implementation: kernel sends notifications via portal
         while (running_.load()) {
@@ -66,14 +71,18 @@ private:
             }
         }
     }
+
+    EventCallback cb_;
+    std::atomic<bool> running_{false};
+    std::thread thread_;
+    std::vector<std::filesystem::path> roots_;
+    mutable std::mutex roots_mutex_;
 };
 
 /* ──────────────────────────────────────────────────────────────
  * Factory
  * ────────────────────────────────────────────────────────────── */
-std::unique_ptr<WorkspaceWatcher> create_workspace_watcher(
-    typename WorkspaceWatcher::EventCallback cb)
-{
+std::unique_ptr<IWorkspaceWatcher> create_workspace_watcher(EventCallback cb) {
     return std::make_unique<PortalWorkspaceWatcher>(std::move(cb));
 }
 

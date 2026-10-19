@@ -11,6 +11,7 @@
 #include "../../fs/include/vfs.h"
 #include "../../task/include/task.h"
 #include "../../arch/x86_64/include/io.h"
+#include "../../kernel/include/elf.h"
 
 namespace feather::kernel {
 
@@ -32,6 +33,7 @@ static void cmd_help() {
     lib::kputs("  cat <path> print a ramfs file\n");
     lib::kputs("  echo ...   print arguments\n");
     lib::kputs("  reboot     reset via keyboard controller\n");
+lib::kputs("  uspspawn   spawn a userspace task from ramfs ELF\n");
 }
 
 static void cmd_uname() {
@@ -115,6 +117,27 @@ static const char* next_token(char*& p) {
     return start;
 }
 
+static void cmd_uspspawn(const char* path) {
+    if (!path || !*path) {
+        lib::kputs("uspspawn: missing path\n");
+        return;
+    }
+    
+    uint32_t size = 0;
+    const char* data = fs::vfs_read_all(path, &size);
+    if (!data) {
+        lib::kprintf("uspspawn: %s: not found\n", path);
+        return;
+    }
+    
+    uint64_t tid = elf::userspace_task_create(data, size, path);
+    if (tid == 0) {
+        lib::kprintf("uspspawn: failed to spawn %s\n", path);
+    } else {
+        lib::kprintf("uspspawn: spawned task %lu\n", tid);
+    }
+}
+
 static void handle_line(char* line) {
     char* p = line;
     const char* cmd = next_token(p);
@@ -147,6 +170,9 @@ static void handle_line(char* line) {
         lib::kputc('\n');
     } else if (lib::strcmp(cmd, "reboot") == 0) {
         cmd_reboot();
+    } else if (lib::strcmp(cmd, "uspspawn") == 0) {
+        const char* path = next_token(p);
+        cmd_uspspawn(path);
     } else if (lib::strcmp(cmd, "panic") == 0) {
         panic("shell requested panic");
     } else {

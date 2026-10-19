@@ -19,9 +19,9 @@ static void pic_remap() {
     outb(0x21, 0x01); io_wait();
     outb(0xA1, 0x01); io_wait();
 
-    // IRQ0 timer + IRQ1 keyboard unmasked
-    outb(0x21, 0xFC);
-    outb(0xA1, 0xFF);
+    // IRQ0 timer, IRQ1 keyboard, IRQ2 cascade, and IRQ12 mouse.
+    outb(0x21, 0xF8);
+    outb(0xA1, 0xEF);
 }
 
 void init() {

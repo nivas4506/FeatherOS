@@ -2,6 +2,7 @@
 // FeatherOS Kernel — Serial Port Driver (16550 UART)
 
 #include <cstdint>
+#include <cstddef>
 
 namespace feather::drivers {
 

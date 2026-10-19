@@ -209,7 +209,7 @@ typedef struct {
     portal_fs_op_t op;
     char path[4096];
     union {
-        struct { uint64_t offset; uint64_t length; } read;
+        struct { uint64_t offset; uint64_t length; uint8_t* data; } read;
         struct { uint64_t offset; uint64_t length; const uint8_t* data; } write;
         struct { int flags; int mode; } open;
         struct { int fd; } close;
