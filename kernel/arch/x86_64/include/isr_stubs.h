@@ -2,6 +2,10 @@
 // FeatherOS Kernel — ISR stubs (C++ only, replaces isr.asm)
 // For compilation checking. Real bootable kernel needs NASM for exact iretq stack layout.
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 
 namespace feather::arch::interrupts {
@@ -117,3 +121,4 @@ inline void init_stub_table() {
 }
 
 } // namespace feather::arch::interrupts
+

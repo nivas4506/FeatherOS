@@ -1,5 +1,9 @@
 #pragma once
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 
 namespace feather::drivers {
@@ -17,3 +21,4 @@ void mouse_handler();
 mouse_state mouse_get_state();
 
 } // namespace feather::drivers
+

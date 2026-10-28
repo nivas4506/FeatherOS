@@ -1,6 +1,10 @@
 #pragma once
 // FeatherOS Kernel — Heap Allocator (kmalloc/kfree)
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstddef>
 #include <cstdint>
 

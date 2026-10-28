@@ -4,6 +4,10 @@
 #include "../../kernel/include/panic.h"
 #include "../../lib/include/printf.h"
 
+#ifdef _MSC_VER
+extern "C" uint64_t __read_cr2();
+#endif
+
 extern "C" void interrupt_dispatch(uint64_t vector, uint64_t error_code) {
     using namespace feather;
 
@@ -21,7 +25,11 @@ extern "C" void interrupt_dispatch(uint64_t vector, uint64_t error_code) {
     }
 
     uint64_t cr2 = 0;
+#ifdef _MSC_VER
+    cr2 = __read_cr2();
+#else
     __asm__ volatile ("mov %%cr2, %0" : "=r"(cr2));
+#endif
 
     const char* name = "unknown";
     switch (vector) {

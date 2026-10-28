@@ -3,6 +3,7 @@
 
 namespace feather::arch::cpu {
 
+#ifndef _MSC_VER
 void cpuid(uint32_t leaf, uint32_t& eax, uint32_t& ebx, uint32_t& ecx, uint32_t& edx) {
     __asm__ volatile (
         "cpuid"
@@ -22,5 +23,6 @@ void enable_sse() {
     cr4 |= (1ULL << 10); // OSXMMEXCPT
     write_cr4(cr4);
 }
+#endif
 
 } // namespace feather::arch::cpu

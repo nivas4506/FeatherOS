@@ -1,15 +1,30 @@
 #include "gdt.h"
 
+#ifdef _MSC_VER
+extern "C" void __reload_segments();
+extern "C" void __lgdt(void*);
+#endif
+
 namespace feather::arch::gdt {
 
 struct gdt_entry {
+#ifdef _MSC_VER
+#pragma pack(push, 1)
+#endif
     uint16_t limit_low;
     uint16_t base_low;
     uint8_t  base_mid;
     uint8_t  access;
     uint8_t  granularity;
     uint8_t  base_high;
+#ifdef _MSC_VER
+#pragma pack(pop)
+#endif
+#ifndef _MSC_VER
 } __attribute__((packed));
+#else
+};
+#endif
 
 // GDT entries:
 //  0x00 - Null
@@ -21,6 +36,9 @@ alignas(8) static gdt_entry gdt[5];
 static gdt_ptr gdtr;
 
 static void reload_segments() {
+#ifdef _MSC_VER
+    __reload_segments();
+#else
     __asm__ volatile (
         "pushq $0x08\n"
         "leaq  1f(%%rip), %%rax\n"
@@ -37,6 +55,7 @@ static void reload_segments() {
         :
         : "rax", "memory"
     );
+#endif
 }
 
 void init() {
@@ -53,7 +72,11 @@ void init() {
 
     gdtr.limit = sizeof(gdt) - 1;
     gdtr.base  = reinterpret_cast<uint64_t>(&gdt[0]);
+#ifdef _MSC_VER
+    __lgdt(&gdtr);
+#else
     __asm__ volatile ("lgdt %0" : : "m"(gdtr));
+#endif
     reload_segments();
 }
 

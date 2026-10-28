@@ -1,6 +1,10 @@
 #pragma once
 // FeatherOS Kernel — libc-style string functions (freestanding)
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstddef>
 #include <cstdint>
 
@@ -17,3 +21,4 @@ int memcmp(const void* a, const void* b, size_t num);
 char* strchr(const char* s, int c);
 
 } // namespace feather::lib
+

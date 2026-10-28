@@ -2,6 +2,10 @@
 // PORTAL Kernel Syscall Interface
 // Matches userspace portal.h exactly
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 #include <cstddef>
 

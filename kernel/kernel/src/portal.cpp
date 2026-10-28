@@ -12,18 +12,38 @@
 namespace feather::kernel::portal {
 
 // ──────────────────────────────────────────────────────────────
-// Simple atomic using GCC builtins (freestanding compatible)
+// Simple atomic (MSVC uses volatile, GCC uses __atomic builtins)
 // ──────────────────────────────────────────────────────────────
+#ifdef _MSC_VER
+template<typename T>
+struct Atomic {
+    volatile T value;
+
+    Atomic() : value(0) {}
+    explicit Atomic(T v) : value(v) {}
+
+    T load() const { return value; }
+    void store(T v) { value = v; }
+    T fetch_add(T v) {
+        T old = value;
+        value = static_cast<T>(old + v);
+        return old;
+    }
+    T operator++() { T old = value; value = static_cast<T>(old + 1); return old + 1; }
+    T operator++(int) { T old = value; value = static_cast<T>(old + 1); return old; }
+};
+#else
 template<typename T>
 struct Atomic {
     T value;
-    
+
     T load() const { return __atomic_load_n(&value, __ATOMIC_SEQ_CST); }
     void store(T v) { __atomic_store_n(&value, v, __ATOMIC_SEQ_CST); }
     T fetch_add(T v) { return __atomic_fetch_add(&value, v, __ATOMIC_SEQ_CST); }
     T operator++() { return fetch_add(1) + 1; }
     T operator++(int) { return fetch_add(1); }
 };
+#endif
 
 // ──────────────────────────────────────────────────────────────
 // Global state

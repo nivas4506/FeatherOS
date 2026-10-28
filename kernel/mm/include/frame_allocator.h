@@ -1,5 +1,9 @@
 #pragma once
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstddef>
 #include <cstdint>
 
@@ -17,3 +21,4 @@ struct frame_stats {
 frame_stats frame_allocator_stats();
 
 } // namespace feather::mm
+

@@ -1,6 +1,10 @@
 #pragma once
 // FeatherOS Kernel — Paging / Memory Management x86_64
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstddef>
 #include <cstdint>
 

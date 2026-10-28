@@ -2,6 +2,10 @@
 
 extern "C" uint64_t isr_stub_addresses[256];
 
+#ifdef _MSC_VER
+extern "C" void __lidt(void* idtp);
+#endif
+
 namespace feather::arch::idt {
 
 alignas(16) idt_entry idt[256];
@@ -20,7 +24,11 @@ void set_gate(uint8_t num, uint64_t handler, uint16_t sel, uint8_t ist, uint8_t 
 void load() {
     idtp.limit = sizeof(idt) - 1;
     idtp.base  = reinterpret_cast<uint64_t>(&idt[0]);
+#ifdef _MSC_VER
+    __lidt(&idtp);
+#else
     __asm__ volatile ("lidt %0" : : "m"(idtp));
+#endif
 }
 
 void init() {

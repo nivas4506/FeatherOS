@@ -1,5 +1,9 @@
 #pragma once
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstddef>
 #include <cstdint>
 
@@ -28,3 +32,4 @@ void vfs_list(const char* path);
 const char* vfs_read_all(const char* path, uint32_t* out_size);
 
 } // namespace feather::fs
+

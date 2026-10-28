@@ -1,5 +1,9 @@
 #pragma once
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 
 namespace feather::drivers {
@@ -9,3 +13,4 @@ uint64_t pit_ticks();
 void pit_handler();
 
 } // namespace feather::drivers
+

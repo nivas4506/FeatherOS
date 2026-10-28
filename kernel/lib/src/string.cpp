@@ -67,6 +67,7 @@ char* strchr(const char* s, int c) {
 
 } // namespace feather::lib
 
+#ifndef _MSC_VER
 extern "C" void* memcpy(void* dst, const void* src, size_t n) {
     return feather::lib::memcpy(dst, src, n);
 }
@@ -92,3 +93,4 @@ extern "C" void* memmove(void* dst, const void* src, size_t n) {
 extern "C" int memcmp(const void* a, const void* b, size_t n) {
     return feather::lib::memcmp(a, b, n);
 }
+#endif

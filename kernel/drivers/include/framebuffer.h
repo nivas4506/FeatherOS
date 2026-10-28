@@ -1,5 +1,9 @@
 #pragma once
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 
 namespace feather::drivers {
@@ -28,3 +32,4 @@ void framebuffer_draw_cursor(uint32_t x, uint32_t y);
 void framebuffer_draw_desktop();
 
 } // namespace feather::drivers
+

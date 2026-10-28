@@ -3,6 +3,10 @@
 #include "../../arch/x86_64/include/cpu.h"
 #include "../../lib/include/string.h"
 
+#ifdef _MSC_VER
+extern "C" void __invlpg(void* virt);
+#endif
+
 namespace feather::mm {
 
 static uint64_t kernel_cr3 = 0;
@@ -90,7 +94,11 @@ void map_page(void* virt, void* phys, bool writable, bool user) {
     uint64_t flags = PTE_P | (writable ? PTE_RW : 0) | (user ? PTE_US : 0);
     pt[pte] = (p & ~0xFFFull) | flags;
 
+#ifdef _MSC_VER
+    __invlpg(virt);
+#else
     __asm__ volatile ("invlpg (%0)" : : "r"(virt) : "memory");
+#endif
 }
 
 void map_user_page(void* virt, void* phys, bool writable) {

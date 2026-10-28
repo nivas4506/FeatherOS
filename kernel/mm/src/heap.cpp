@@ -21,16 +21,31 @@ alignas(16) static uint8_t heap_arena[HEAP_BYTES];
 static block_header* heap_start = nullptr;
 static std::size_t heap_used_bytes = 0;
 static std::size_t allocation_count = 0;
+#ifdef _MSC_VER
+static volatile long heap_lock = 0;
+#else
 static volatile int heap_lock = 0;
+#endif
 
 static void lock() {
+#ifdef _MSC_VER
+    while (heap_lock) {
+        // spin until lock is released
+    }
+    heap_lock = 1;
+#else
     while (__sync_lock_test_and_set(&heap_lock, 1)) {
         while (heap_lock) arch::cpu::pause();
     }
+#endif
 }
 
 static void unlock() {
+#ifdef _MSC_VER
+    heap_lock = 0;
+#else
     __sync_lock_release(&heap_lock);
+#endif
 }
 
 static void split_block(block_header* block, std::size_t size) {

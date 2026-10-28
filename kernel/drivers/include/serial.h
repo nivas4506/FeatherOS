@@ -1,6 +1,10 @@
 #pragma once
 // FeatherOS Kernel — Serial Port Driver (16550 UART)
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 #include <cstddef>
 

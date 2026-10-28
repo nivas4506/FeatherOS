@@ -2,6 +2,10 @@
 // FeatherOS Kernel — ELF Loader for Userspace Programs
 // Loads ELF64 executables into user address spaces
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 #include <cstddef>
 

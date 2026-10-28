@@ -1,6 +1,10 @@
 #pragma once
 // FeatherOS Kernel — Task/Process Management
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 #include <cstddef>
 
@@ -51,6 +55,11 @@ struct task {
     uint64_t        total_ticks;     // Total CPU time used
     task*           next;            // Next in queue
     task*           prev;            // Previous in queue
+    // Phase 7: Scheduler hints
+    uint8_t         sched_hints_valid;   // Scheduler hints are set
+    uint8_t         sched_wclass;        // Workload classification
+    uint32_t        sched_flags;         // Scheduler hint flags
+    uint64_t        sched_deadline_ns;   // Absolute deadline
 };
 
 // Initialize task subsystem

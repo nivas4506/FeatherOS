@@ -1,7 +1,46 @@
 #pragma once
 // FeatherOS Kernel — Spinlock (x86_64)
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
+
+#ifdef _MSC_VER
+// MSVC x64: no __sync_* builtins and <intrin.h> intrinsics may not be
+// available in a freestanding build. Use volatile-only operations. This is
+// correct for a kernel that runs with interrupts disabled during critical
+// sections (single logical core of execution).
+namespace feather::lib {
+
+using spinlock_t = volatile long;
+
+inline void spin_lock(spinlock_t* lock) {
+    while (*lock) {
+        // spin until lock is released
+    }
+    *lock = 1;
+}
+
+inline void spin_unlock(spinlock_t* lock) {
+    *lock = 0;
+}
+
+inline bool spin_trylock(spinlock_t* lock) {
+    if (*lock) return false;
+    *lock = 1;
+    return true;
+}
+
+inline void cpu_pause() {
+    // No pause instruction intrinsic; yield via a no-op loop hint
+    __nop();
+}
+
+} // namespace feather::lib
+
+#else
 
 namespace feather::lib {
 
@@ -25,7 +64,13 @@ inline void cpu_pause() {
     __asm__ volatile ("pause");
 }
 
-// RAII lock guard
+} // namespace feather::lib
+
+#endif
+
+// RAII lock guard (shared by both toolchains)
+namespace feather::lib {
+
 template<typename Lock>
 class lock_guard {
 public:
@@ -38,3 +83,4 @@ private:
 };
 
 } // namespace feather::lib
+

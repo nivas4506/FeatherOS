@@ -1,5 +1,9 @@
 #pragma once
 
+
+#ifdef _MSC_VER
+#include <intrin.h>
+#endif
 #include <cstdint>
 
 namespace feather::kernel::gui {
@@ -29,3 +33,4 @@ void window_manager_render();
 const window* window_get(uint32_t id);
 
 } // namespace feather::kernel::gui
+

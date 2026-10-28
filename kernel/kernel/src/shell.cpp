@@ -11,6 +11,7 @@
 #include "../../fs/include/vfs.h"
 #include "../../task/include/task.h"
 #include "../../arch/x86_64/include/io.h"
+#include "../../arch/x86_64/include/cpu.h"
 #include "../../kernel/include/elf.h"
 
 namespace feather::kernel {
@@ -101,7 +102,12 @@ static void cmd_reboot() {
     lib::kputs("rebooting...\n");
     arch::io::outb(0x64, 0xFE);
     for (;;) {
+#ifdef _MSC_VER
+        arch::cpu::cli();
+        arch::cpu::hlt();
+#else
         __asm__ volatile ("cli; hlt");
+#endif
     }
 }
 

@@ -1,0 +1,62 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "vs-msvc",
+      "displayName": "Visual Studio MSVC (x64 Release)",
+      "description": "Configure FeatherOS kernel using the Visual Studio MSVC (cl.exe/link.exe) toolchain",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/kernel/build-win-vs",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "vs-msvc-debug",
+      "displayName": "Visual Studio MSVC (x64 Debug)",
+      "description": "Configure FeatherOS kernel using Visual Studio MSVC with debug info",
+      "generator": "Visual Studio 18 2026",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/kernel/build-win-vs-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "mingw-make",
+      "displayName": "MinGW Makefiles (GCC)",
+      "description": "Configure FeatherOS kernel using MinGW GCC (existing Windows build)",
+      "generator": "MinGW Makefiles",
+      "binaryDir": "${sourceDir}/kernel/build-win",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vs-msvc",
+      "displayName": "Build Visual Studio MSVC (x64 Release)",
+      "configurePreset": "vs-msvc",
+      "configuration": "Release"
+    },
+    {
+      "name": "vs-msvc-debug",
+      "displayName": "Build Visual Studio MSVC (x64 Debug)",
+      "configurePreset": "vs-msvc-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "mingw-make",
+      "displayName": "Build MinGW Makefiles (GCC)",
+      "configurePreset": "mingw-make",
+      "configuration": "Release"
+    }
+  ]
+}
