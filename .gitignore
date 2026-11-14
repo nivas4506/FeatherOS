@@ -1,0 +1,40 @@
+# FeatherOS Build Outputs
+build/*
+!build/.gitkeep
+
+# Linux Kernel Build Artifacts
+src/kernel/*.o
+src/kernel/*.ko
+src/kernel/*.a
+src/kernel/*.cmd
+src/kernel/*.mod
+src/kernel/*.mod.c
+src/kernel/*.order
+src/kernel/*.symvers
+src/kernel/vmlinux*
+src/kernel/System.map
+src/kernel/.config.old
+src/kernel/arch/*/boot/bzImage
+src/kernel/arch/*/boot/vmlinux*
+
+# Model Weights & GGUF binaries (Track via external fetch scripts)
+*.gguf
+*.safetensors
+*.bin
+*.onnx
+models/
+
+# Rootfs & Image Artifacts
+*.iso
+*.img
+*.qcow2
+*.cpio
+*.cpio.gz
+
+# System & Editor Temporary Files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
