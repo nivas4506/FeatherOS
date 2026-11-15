@@ -1,0 +1,8 @@
+NAME="FeatherOS"
+VERSION="0.1.0-alpha"
+ID="featheros"
+PRETTY_NAME="FeatherOS AI-Native Distro 0.1.0 (Baby Opossum)"
+HOME_URL="https://github.com/nivas4506/FeatherOS"
+SUPPORT_URL="https://github.com/nivas4506/FeatherOS/issues"
+BUG_REPORT_URL="https://github.com/nivas4506/FeatherOS/issues"
+

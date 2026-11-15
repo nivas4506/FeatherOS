@@ -1,0 +1,61 @@
+#!/bin/sh
+# FeatherOS Custom PID 1 Init System
+# Lightweight, AI-ready initial userspace sequence
+
+# 1. Mount virtual and kernel filesystems
+/bin/mount -t proc proc /proc
+/bin/mount -t sysfs sysfs /sys
+/bin/mount -t devtmpfs devtmpfs /dev
+/bin/mkdir -p /dev/pts /dev/shm
+/bin/mount -t devpts devpts /dev/pts
+/bin/mount -t tmpfs tmpfs /dev/shm
+/bin/mount -t tmpfs tmpfs /tmp
+/bin/mount -t tmpfs tmpfs /run
+
+# 2. Set Hostname and Environment
+/bin/hostname featheros
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export TERM=linux
+export HOME=/root
+
+# 3. Bring up Loopback Network Interface
+/sbin/ifconfig lo 127.0.0.1 up 2>/dev/null || true
+
+# 4. Initialize zRAM memory compression if available
+if [ -e /dev/zram0 ]; then
+    /sbin/zramctl --find --size 512M --algorithm lz4 2>/dev/null && \
+    /sbin/mkswap /dev/zram0 >/dev/null 2>&1 && \
+    /sbin/swapon /dev/zram0 2>/dev/null || true
+fi
+
+# 5. Display FeatherOS Boot Banner
+/bin/clear
+cat << "EOF"
+  ______         _   _                 ____   _____ 
+ |  ____|       | | | |               / __ \ / ____|
+ | |__ ___  __ _| |_| |__   ___ _ __ | |  | | (___  
+ |  __/ _ \/ _` | __| '_ \ / _ \ '__|| |  | |\___ \ 
+ | | |  __/ (_| | |_| | | |  __/ |   | |__| |____) |
+ |_|  \___|\__,_|\__|_| |_|\___|_|    \____/|_____/ 
+                                                    
+      * AI-Native, Hyper-Efficient Linux Distro *
+EOF
+
+if [ -f /etc/featheros-release ]; then
+    echo " [✓] System: $(cat /etc/featheros-release)"
+fi
+echo " [✓] Kernel: $(uname -r) on $(uname -m)"
+echo " [✓] Memory: $(free -h 2>/dev/null | grep Mem: | awk '{print $2}' || echo 'OK')"
+echo ""
+echo "Welcome to FeatherOS! Type 'exit' to reboot or 'poweroff' to shutdown."
+echo "------------------------------------------------------------------"
+
+# 6. Start Feather AI Daemon if present
+if [ -x /usr/bin/featherd ]; then
+    echo " [*] Starting Feather AI Subsystem daemon..."
+    /usr/bin/featherd &
+fi
+
+# 7. Launch interactive shell on controlling terminal
+exec /bin/sh </dev/console >/dev/console 2>&1
+
