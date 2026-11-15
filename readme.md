@@ -1,4 +1,28 @@
-# FeatherOS: System Architecture & Design Specification
+<p align="center">
+  <img src="docs/banner.png" alt="FeatherOS Banner" width="600"/>
+</p>
+
+```text
+  ______         _   _                 ____   _____ 
+ |  ____|       | | | |               / __ \ / ____|
+ | |__ ___  __ _| |_| |__   ___ _ __ | |  | | (___  
+ |  __/ _ \/ _` | __| '_ \ / _ \ '__|| |  | |\___ \ 
+ | | |  __/ (_| | |_| | | |  __/ |   | |__| |____) |
+ |_|  \___|\__,_|\__|_| |_|\___|_|    \____/|_____/ 
+```
+
+<div align="center">
+
+# FeatherOS
+
+**AI-Native, Hyper-Efficient Linux Distribution**
+
+[![License: GPL-2.0](https://img.shields.io/badge/License-GPL--2.0-blue.svg)](https://opensource.org/licenses/GPL-2.0)
+[![Kernel: Linux 7.3.4](https://img.shields.io/badge/Kernel-Linux%207.3.4-green.svg)](https://kernel.org)
+[![Status: Bootable v0.1](https://img.shields.io/badge/Status-Bootable%20v0.1-brightgreen.svg)](#)
+[![Arch: x86__64](https://img.shields.io/badge/Arch-x86__64-orange.svg)](#)
+
+</div>
 
 > **Vision:** A featherweight, hyper-efficient Linux distribution engineered from the ground up to integrate Small Language Models (SLMs) and Vision-Language Models (VLMs) directly into the core operating system.
 
