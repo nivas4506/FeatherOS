@@ -28,8 +28,14 @@ if [ -e /dev/kvm ] && [ -w /dev/kvm ]; then
     ACCEL_FLAGS="-enable-kvm -cpu host"
 fi
 
+DISPLAY_FLAGS="-nographic -serial mon:stdio -append \"console=ttyS0 rdinit=/init quiet loglevel=3 noapic\""
+if [ "$1" = "gui" ] || [ "$1" = "--gui" ]; then
+    echo " [*] Running in Graphical Window mode..."
+    DISPLAY_FLAGS="-vga std -serial mon:stdio -append \"console=tty0 console=ttyS0 rdinit=/init quiet loglevel=3 noapic\""
+fi
+
 echo " [*] Booting FeatherOS..."
-echo "     (To exit QEMU, press Ctrl+A then X)"
+echo "     (To exit QEMU, press Ctrl+A then X, or close the GUI window)"
 echo "----------------------------------------------------------"
 
 qemu-system-x86_64 \
@@ -38,7 +44,5 @@ qemu-system-x86_64 \
     -initrd "${INITRAMFS}" \
     -m 1024M \
     -smp 2 \
-    -nographic \
-    -serial mon:stdio \
-    -append "console=ttyS0 rdinit=/init quiet loglevel=3 noapic"
+    ${DISPLAY_FLAGS}
 
