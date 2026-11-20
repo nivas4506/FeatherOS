@@ -3,7 +3,11 @@ setlocal
 
 set QEMU="C:\MinGW\ucrt64\bin\qemu-system-x86_64.exe"
 set KERNEL="build\bzImage"
-set INITRAMFS="build\initramfs.cpio.gz"
+set INITRAMFS="build\desktop_initramfs.cpio.gz"
+
+if not exist %INITRAMFS% (
+    set INITRAMFS="build\initramfs.cpio.gz"
+)
 
 echo ==========================================================
 echo          Launching FeatherOS in Graphical Window          
@@ -26,7 +30,7 @@ echo ----------------------------------------------------------
 %QEMU% ^
     -kernel %KERNEL% ^
     -initrd %INITRAMFS% ^
-    -m 1024M ^
+    -m 2048M ^
     -smp 2 ^
     -vga std ^
     -serial mon:stdio ^
